@@ -1,7 +1,7 @@
 http-status-codes
 =================
 
-Constants enumerating the HTTP status codes. Based on the [Java Apache httpclient API](http://hc.apache.org/httpclient-3.x/apidocs/org/apache/commons/httpclient/HttpStatus.html).
+Constants enumerating the HTTP status codes. Based on the [Java Apache HttpStatus API](http://hc.apache.org/httpclient-3.x/apidocs/org/apache/commons/httpclient/HttpStatus.html).
 
 
 
