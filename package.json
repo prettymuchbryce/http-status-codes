@@ -1,7 +1,7 @@
 {
   "name": "http-status-codes",
-  "version": "1.0.0",
-  "description": "Constants enumerating the HTTP status codes. Based on Java's org.apache.commons.httpclient.",
+  "version": "1.0.1",
+  "description": "Constants enumerating the HTTP status codes. Based on the Java Apache HttpStatus API.",
   "main": "httpstatus.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,9 +10,15 @@
     "type": "git",
     "url": "https://github.com/prettymuchbryce/node-http-status.git"
   },
+  "bin": {
+    "htto-status-codes": "./bin/http-status-codes"
+  },
   "keywords": [
     "node",
     "http",
+    "apache",
+    "HttpStatus",
+    "httpclient",
     "status",
     "codes"
   ],
