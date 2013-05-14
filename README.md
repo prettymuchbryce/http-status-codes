@@ -13,7 +13,7 @@ All status codes defined in RFC1945 (HTTP/1.0, RFC2616 (HTTP/1.1), and RFC2518 (
 	
 ####Usage
 
-	HttpStatus = require('httpstatus');
+	var HttpStatus = require('http-status-codes');
 
 	response.send(HttpStatus.OK);
 	response.send(
