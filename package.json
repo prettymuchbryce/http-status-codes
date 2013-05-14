@@ -1,6 +1,6 @@
 {
   "name": "http-status-codes",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Constants enumerating the HTTP status codes. Based on the Java Apache HttpStatus API.",
   "main": "httpstatus.js",
   "scripts": {
@@ -10,8 +10,9 @@
     "type": "git",
     "url": "https://github.com/prettymuchbryce/node-http-status.git"
   },
+  "main": "./lib/httpstatus",
   "bin": {
-    "htto-status-codes": "./bin/http-status-codes"
+    "http-status-codes": "./bin/http-status-codes"
   },
   "keywords": [
     "node",
