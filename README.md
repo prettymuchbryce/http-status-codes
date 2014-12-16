@@ -1,22 +1,27 @@
-http-status-codes
-=================
+# http-status-codes
 
 Constants enumerating the HTTP status codes. Based on the [Java Apache HttpStatus API](http://hc.apache.org/httpclient-3.x/apidocs/org/apache/commons/httpclient/HttpStatus.html).
 
-
-
 All status codes defined in RFC1945 (HTTP/1.0, RFC2616 (HTTP/1.1), and RFC2518 (WebDAV) are supported.
 
-####Installation
+## Installation
 
-	npm install http-status-codes
+```console
+npm install http-status-codes
+```
 	
-####Usage
+## Usage
 
-	var HttpStatus = require('http-status-codes');
+```javascript
+var HttpStatus = require('http-status-codes');
 
-	response.send(HttpStatus.OK);
-	response.send(
-		HttpStatus.INTERNAL_SERVER_ERROR, 
-		{ error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR) }
-	);
+response
+	.status(HttpStatus.OK)
+	.send('ok');
+
+response
+	.status(HttpStatus.INTERNAL_SERVER_ERROR)
+	.send({
+		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
+	});
+```
