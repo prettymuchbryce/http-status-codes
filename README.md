@@ -10,7 +10,7 @@ All status codes defined in RFC1945 (HTTP/1.0, RFC2616 (HTTP/1.1), and RFC2518 (
 npm install http-status-codes
 ```
 	
-## Usage
+## Usage (express 4.x)
 
 ```javascript
 var HttpStatus = require('http-status-codes');
