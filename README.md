@@ -28,7 +28,7 @@ response
 
 ## Codes
 
-Constant | Code | message
+Constant | Code | Message
 ----|----|----
 ACCEPTED | 202 | Accepted
 BAD_GATEWAY | 502 | Bad Gateway
