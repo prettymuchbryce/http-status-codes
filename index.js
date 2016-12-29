@@ -64,10 +64,24 @@ statusCodes[exports.UNPROCESSABLE_ENTITY = 422] = "Unprocessable Entity";
 statusCodes[exports.UNSUPPORTED_MEDIA_TYPE = 415] = "Unsupported Media Type";
 statusCodes[exports.USE_PROXY = 305] = "Use Proxy";
 
+/**
+ * Check for valid HTTP status code.
+ */
+exports.isValid = function(statusCode) {
+  if (!statusCodes.hasOwnProperty(statusCode)) {
+    return false;
+  }
+
+  return true;
+};
+
+/**
+ * Get status text for HTTP status code.
+ */
 exports.getStatusText = function(statusCode) {
-  if (statusCodes.hasOwnProperty(statusCode)) {
-    return statusCodes[statusCode];
-  } else {
+  if (!exports.isValid(statusCode)) {
     throw new Error("Status code does not exist: " + statusCode);
   }
+
+  return statusCodes[statusCode];
 };
