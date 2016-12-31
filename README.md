@@ -24,6 +24,9 @@ response
 	.send({
 		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
 	});
+
+// Check HTTP status code
+HttpStatus.isValid(222)  // false
 ```
 
 ## Codes
