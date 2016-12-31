@@ -22,7 +22,7 @@ response
 response
 	.status(HttpStatus.INTERNAL_SERVER_ERROR)
 	.send({
-		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
+		error: HttpStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	});
 ```
 
