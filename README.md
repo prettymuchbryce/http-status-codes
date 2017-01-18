@@ -2,7 +2,7 @@
 
 Constants enumerating the HTTP status codes. Based on the [Java Apache HttpStatus API](http://hc.apache.org/httpclient-3.x/apidocs/org/apache/commons/httpclient/HttpStatus.html).
 
-All status codes defined in RFC1945 (HTTP/1.0), RFC2616 (HTTP/1.1), RFC2518 (WebDAV) and RFC6585 (Additional HTTP Status Codes) are supported.
+All status codes defined in RFC1945 (HTTP/1.0), RFC2616 (HTTP/1.1), RFC2518 (WebDAV), RFC6585 (Additional HTTP Status Codes), and RFC7538 (Permanent Redirect) are supported.
 
 ## Installation
 
@@ -63,6 +63,7 @@ NOT_MODIFIED                        | 304   | Not Modified
 OK                                  | 200   | OK
 PARTIAL_CONTENT                     | 206   | Partial Content
 PAYMENT_REQUIRED                    | 402   | Payment Required
+PERMANENT_REDIRECT                  | 308   | Permanent Redirect
 PRECONDITION_FAILED                 | 412   | Precondition Failed
 PRECONDITION_REQUIRED               | 428   | Precondition Required
 PROCESSING                          | 102   | Processing

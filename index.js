@@ -2,7 +2,8 @@
  * Constants enumerating the HTTP status codes.
  *
  * All status codes defined in RFC1945 (HTTP/1.0, RFC2616 (HTTP/1.1),
- * and RFC2518 (WebDAV) are supported.
+ * RFC2518 (WebDAV), RFC6585 (Additional HTTP Status Codes), and
+ * RFC7538 (Permanent Redirect) are supported.
  *
  * Based on the org.apache.commons.httpclient.HttpStatus Java API.
  *
@@ -44,6 +45,7 @@ statusCodes[exports.NOT_MODIFIED = 304] = "Not Modified";
 statusCodes[exports.OK = 200] = "OK";
 statusCodes[exports.PARTIAL_CONTENT = 206] = "Partial Content";
 statusCodes[exports.PAYMENT_REQUIRED = 402] = "Payment Required";
+statusCodes[exports.PERMANENT_REDIRECT = 308] = "Permanent Redirect";
 statusCodes[exports.PRECONDITION_FAILED = 412] = "Precondition Failed";
 statusCodes[exports.PRECONDITION_REQUIRED = 428] = "Precondition Required";
 statusCodes[exports.PROCESSING = 102] = "Processing";
