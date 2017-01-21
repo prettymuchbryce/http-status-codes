@@ -4,6 +4,8 @@ Constants enumerating the HTTP status codes. Based on the [Java Apache HttpStatu
 
 All status codes defined in RFC1945 (HTTP/1.0), RFC2616 (HTTP/1.1), RFC2518 (WebDAV), RFC6585 (Additional HTTP Status Codes), and RFC7538 (Permanent Redirect) are supported.
 
+Completely library agnostic. No dependencies.
+
 ## Installation
 
 ```console
