@@ -20,5 +20,9 @@
     "codes"
   ],
   "author": "Bryce Neal",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^2.4.2"
+  },
+  "typings": "index.d.ts"
 }
