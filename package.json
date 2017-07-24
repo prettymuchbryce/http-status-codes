@@ -20,5 +20,6 @@
     "codes"
   ],
   "author": "Bryce Neal",
-  "license": "MIT"
+  "license": "MIT",
+  "typings": "index.d.ts"
 }

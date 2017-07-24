@@ -85,3 +85,35 @@ UNAUTHORIZED                        | 401   | Unauthorized
 UNPROCESSABLE_ENTITY                | 422   | Unprocessable Entity
 UNSUPPORTED_MEDIA_TYPE              | 415   | Unsupported Media Type
 USE_PROXY                           | 305   | Use Proxy
+
+## TypeScript
+
+There is an included definition file that adds rules for use, comments, and links to official documentation.
+
+### Usage
+
+Option 1: Full import of package
+
+```typescript
+import * as HttpStatus from 'http-status-codes'
+
+response
+	.status(HttpStatus.OK)
+	.send('ok')
+
+response
+	.status(HttpStatus.INTERNAL_SERVER_ERROR)
+	.send({
+		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
+	})
+```
+
+Option 2: Selective import
+
+```typescript
+import { OK, getStatusText } from 'http-status-codes'
+
+response
+	.status(OK)
+	.send(getStatusText(OK))
+```
