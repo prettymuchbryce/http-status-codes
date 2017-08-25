@@ -71,6 +71,12 @@ export declare const GONE = 410;
  */
 export declare const HTTP_VERSION_NOT_SUPPORTED = 505;
 /**
+ * Official Documentation @ https://tools.ietf.org/html/rfc2324#section-2.3.2
+ *
+ * Any attempt to brew coffee with a teapot should result in the error code "418 I'm a teapot". The resulting entity body MAY be short and stout.
+ */
+export declare const IM_A_TEAPOT = 418;
+/**
  * UNOFFICIAL w/ NO DOCS
  */
 export declare const INSUFFICIENT_SPACE_ON_RESOURCE = 419;
