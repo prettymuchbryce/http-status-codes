@@ -65,6 +65,7 @@ statusCodes[exports.UNAUTHORIZED = 401] = "Unauthorized";
 statusCodes[exports.UNPROCESSABLE_ENTITY = 422] = "Unprocessable Entity";
 statusCodes[exports.UNSUPPORTED_MEDIA_TYPE = 415] = "Unsupported Media Type";
 statusCodes[exports.USE_PROXY = 305] = "Use Proxy";
+statusCodes[exports.I_TEAPOT = 418] = "I'm a teapot";
 
 exports.getStatusText = function(statusCode) {
   if (statusCodes.hasOwnProperty(statusCode)) {
