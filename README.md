@@ -85,6 +85,7 @@ UNAUTHORIZED                        | 401   | Unauthorized
 UNPROCESSABLE_ENTITY                | 422   | Unprocessable Entity
 UNSUPPORTED_MEDIA_TYPE              | 415   | Unsupported Media Type
 USE_PROXY                           | 305   | Use Proxy
+I_TEAPOT                            | 418   | I'm a teapot
 
 ## TypeScript
 
