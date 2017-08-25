@@ -71,6 +71,12 @@ export declare const GONE = 410;
  */
 export declare const HTTP_VERSION_NOT_SUPPORTED = 505;
 /**
+ * Official Documentation @ https://tools.ietf.org/html/rfc2324#section-2.3.2
+ *
+ * Any attempt to brew coffee with a teapot should result in the error code "418 I'm a teapot". The resulting entity body MAY be short and stout.
+ */
+export declare const IM_A_TEAPOT = 418;
+/**
  * UNOFFICIAL w/ NO DOCS
  */
 export declare const INSUFFICIENT_SPACE_ON_RESOURCE = 419;
@@ -317,12 +323,6 @@ export declare const UNSUPPORTED_MEDIA_TYPE = 415;
  * Was defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. It has been deprecated due to security concerns regarding in-band configuration of a proxy.
  */
 export declare const USE_PROXY = 305;
-/**
- * Official Documentation @ https://tools.ietf.org/html/rfc2324#section-2.3.2
- *
- * Any attempt to brew coffee with a teapot should result in the error code "418 I'm a teapot". The resulting entity body MAY be short and stout.
- */
-export declare const I_TEAPOT = 418;
 /**
  * Convert the numeric status code to its appropriate title.
  * @param statusCode One of the available status codes in this package
