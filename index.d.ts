@@ -318,6 +318,12 @@ export declare const UNSUPPORTED_MEDIA_TYPE = 415;
  */
 export declare const USE_PROXY = 305;
 /**
+ * Official Documentation @ https://tools.ietf.org/html/rfc2324#section-2.3.2
+ *
+ * Any attempt to brew coffee with a teapot should result in the error code "418 I'm a teapot". The resulting entity body MAY be short and stout.
+ */
+export declare const I_TEAPOT = 418;
+/**
  * Convert the numeric status code to its appropriate title.
  * @param statusCode One of the available status codes in this package
  * @returns {String} The associated title of the passed status code
