@@ -30,7 +30,7 @@ response
 
 ## Codes
 
-Constant                            | Code  | Message
+Constant                            | Code  | Status Text
 ------------------------------------|-------|-----------------------------------
 ACCEPTED                            | 202   | Accepted
 BAD_GATEWAY                         | 502   | Bad Gateway
