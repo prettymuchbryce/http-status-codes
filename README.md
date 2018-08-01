@@ -87,9 +87,9 @@ UNPROCESSABLE_ENTITY                | 422   | Unprocessable Entity
 UNSUPPORTED_MEDIA_TYPE              | 415   | Unsupported Media Type
 USE_PROXY                           | 305   | Use Proxy
 
-## TypeScript
+## Typings
 
-There is an included definition file that adds rules for use, comments, and links to official documentation.
+There are included `flowtype` and `typescript` definition files that add rules for use, comments, and links to official documentation.
 
 ### Usage
 
