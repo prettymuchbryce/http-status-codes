@@ -28,7 +28,7 @@ response
 	});
 ```
 
-## Codes
+## Statuses by name / [by code](./CODES.md)
 
 Constant                            | Code  | Status Text
 ------------------------------------|-------|-----------------------------------
