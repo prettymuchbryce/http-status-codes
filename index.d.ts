@@ -324,6 +324,12 @@ export declare const UNSUPPORTED_MEDIA_TYPE = 415;
  */
 export declare const USE_PROXY = 305;
 /**
+ * Documentation @ https://httpstatuses.com/599
+ * 
+ * This status code is not specified in any RFCs, but is used by some HTTP proxies to signal a network connect timeout behind the proxy to a client in front of the proxy.
+ */
+export declare const NETWORK_CONNECT_TIMEOUT_ERROR = 599;
+/**
  * Convert the numeric status code to its appropriate title.
  * @param statusCode One of the available status codes in this package
  * @returns {String} The associated title of the passed status code
