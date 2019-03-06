@@ -26,6 +26,9 @@ response
 	.send({
 		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
 	});
+
+response.status(HttpStatus.getStatusCode('No Content'))
+	.send();
 ```
 
 ## Codes
@@ -107,14 +110,22 @@ response
 	.send({
 		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
 	})
+
+response
+	.status(getStatusCode('No Content')
+	.send()
 ```
 
 Option 2: Selective import
 
 ```typescript
-import { OK, getStatusText } from 'http-status-codes'
+import { OK, getStatusText, getStatusCode } from 'http-status-codes'
 
 response
 	.status(OK)
 	.send(getStatusText(OK))
+
+response
+	.status(getStatusCode('No Content')
+	.send()
 ```

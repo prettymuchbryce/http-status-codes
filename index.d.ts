@@ -384,5 +384,13 @@ export declare enum HTTP_STATUS {
  * Convert the numeric status code to its appropriate title.
  * @param statusCode One of the available status codes in this package
  * @returns {String} The associated title of the passed status code
+ * @throws {Error} The status code does not exist
  */
 export declare function getStatusText(statusCode: number): string;
+
+/**
+ * Convert the status code title to its appropriate numeric value
+ * @param statusText One of the available status texts in this package
+ * @returns {Number} The associated status code of the passed status text
+ * @throws {Error} The status text does not exist
+export declare function getStatusCode(statusText: string): number;
