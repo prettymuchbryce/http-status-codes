@@ -27,8 +27,11 @@ response
 		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
 	});
 
-response.status(HttpStatus.getStatusCode('No Content'))
-	.send();
+response
+	.status(HttpStatus.getStatusCode('Server Error'))
+	.send({
+		error: 'Server Error'
+	});
 ```
 
 ## Codes
@@ -112,8 +115,10 @@ response
 	})
 
 response
-	.status(getStatusCode('No Content')
-	.send()
+	.status(HttpStatus.getStatusCode('Server Error'))
+	.send({
+		error: 'Server Error'
+	})
 ```
 
 Option 2: Selective import
@@ -126,6 +131,6 @@ response
 	.send(getStatusText(OK))
 
 response
-	.status(getStatusCode('No Content')
-	.send()
+	.status(getStatusCode('Server Error')
+	.send('Server Error')
 ```

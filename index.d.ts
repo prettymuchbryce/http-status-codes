@@ -389,8 +389,9 @@ export declare enum HTTP_STATUS {
 export declare function getStatusText(statusCode: number): string;
 
 /**
- * Convert the status code title to its appropriate numeric value
- * @param statusText One of the available status texts in this package
- * @returns {Number} The associated status code of the passed status text
- * @throws {Error} The status text does not exist
-export declare function getStatusCode(statusText: string): number;
+ * Convert the status reason phrase to its appropriate numeric value
+ * @param reasonPhrase One of the available reason phrases in this package
+ * @returns {Number} The associated status code of the passed reason phrase
+ * @throws {Error} The reason phrase does not exist
+ */
+export declare function getStatusCode(reasonPhrase: string): number;
