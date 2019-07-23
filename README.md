@@ -57,6 +57,7 @@ MOVED_TEMPORARILY                   | 302   | Moved Temporarily
 MULTI_STATUS                        | 207   | Multi-Status
 MULTIPLE_CHOICES                    | 300   | Multiple Choices
 NETWORK_AUTHENTICATION_REQUIRED     | 511   | Network Authentication Required
+NEVER_GONNA_GIVE_YOU_UP             | 234   | Never Gonna Give You Up
 NO_CONTENT                          | 204   | No Content
 NON_AUTHORITATIVE_INFORMATION       | 203   | Non Authoritative Information
 NOT_ACCEPTABLE                      | 406   | Not Acceptable
