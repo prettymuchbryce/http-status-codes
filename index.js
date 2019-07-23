@@ -37,6 +37,7 @@ statusCodes[exports.MOVED_TEMPORARILY = 302] = "Moved Temporarily";
 statusCodes[exports.MULTI_STATUS = 207] = "Multi-Status";
 statusCodes[exports.MULTIPLE_CHOICES = 300] = "Multiple Choices";
 statusCodes[exports.NETWORK_AUTHENTICATION_REQUIRED = 511] = "Network Authentication Required";
+statusCodes[exports.NEVER_GONNA_GIVE_YOU_UP = 234] = "Never Gonna Give You Up";
 statusCodes[exports.NO_CONTENT = 204] = "No Content";
 statusCodes[exports.NON_AUTHORITATIVE_INFORMATION = 203] = "Non Authoritative Information";
 statusCodes[exports.NOT_ACCEPTABLE = 406] = "Not Acceptable";
