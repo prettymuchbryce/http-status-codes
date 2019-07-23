@@ -140,6 +140,12 @@ export declare const MULTI_STATUS = 207;
  */
 export declare const MULTIPLE_CHOICES = 300;
 /**
+ * Official Documentation @ https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ *
+ * The 234 status code indicates that the client is Never Gonna Give You Up, Never Gonna Let You Down
+ */
+export declare const NEVER_GONNA_GIVE_YOU_UP = 234;
+/**
  * Official Documentation @ https://tools.ietf.org/html/rfc6585#section-6
  *
  * The 511 status code indicates that the client needs to authenticate to gain network access.
