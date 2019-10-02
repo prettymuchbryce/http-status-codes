@@ -329,3 +329,9 @@ export declare const USE_PROXY = 305;
  * @returns {String} The associated title of the passed status code
  */
 export declare function getStatusText(statusCode: number): string;
+/**
+ * Convert the numeric status code back to its appropriate code.
+ * @param statusCode One of the available status codes in this package
+ * @returns {String} The associated code name of the passed status code
+ */
+export declare function getStatusCode(statusCode: number): string;

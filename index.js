@@ -11,6 +11,7 @@
  */
 
 var statusCodes = {};
+var codes = {};
 
 statusCodes[exports.ACCEPTED = 202] = "Accepted";
 statusCodes[exports.BAD_GATEWAY = 502] = "Bad Gateway";
@@ -66,6 +67,69 @@ statusCodes[exports.UNAUTHORIZED = 401] = "Unauthorized";
 statusCodes[exports.UNPROCESSABLE_ENTITY = 422] = "Unprocessable Entity";
 statusCodes[exports.UNSUPPORTED_MEDIA_TYPE = 415] = "Unsupported Media Type";
 statusCodes[exports.USE_PROXY = 305] = "Use Proxy";
+
+codes[exports.ACCEPTED] = "ACCEPTED";
+codes[exports.BAD_GATEWAY] = "BAD_GATEWAY";
+codes[exports.BAD_REQUEST] = "BAD_REQUEST";
+codes[exports.CONFLICT] = "CONFLICT";
+codes[exports.CONTINUE] = "CONTINUE";
+codes[exports.CREATED] = "CREATED";
+codes[exports.EXPECTATION_FAILED] = "EXPECTATION_FAILED";
+codes[exports.FAILED_DEPENDENCY4] = "FAILED_DEPENDENCY";
+codes[exports.FORBIDDEN] = "FORBIDDEN";
+codes[exports.GATEWAY_TIMEOUT] = "GATEWAY_TIMEOUT";
+codes[exports.GONE] = "GONE";
+codes[exports.HTTP_VERSION_NOT_SUPPORTED] = "HTTP_VERSION_NOT_SUPPORTED";
+codes[exports.IM_A_TEAPOT] = "IM_A_TEAPOT";
+codes[exports.INSUFFICIENT_SPACE_ON_RESOURCE] = "INSUFFICIENT_SPACE_ON_RESOURCE";
+codes[exports.INSUFFICIENT_STORAGE] = "INSUFFICIENT_STORAGE";
+codes[exports.INTERNAL_SERVER_ERROR] = "INTERNAL_SERVER_ERROR";
+codes[exports.LENGTH_REQUIRED] = "LENGTH_REQUIRED";
+codes[exports.LOCKED] = "LOCKED";
+codes[exports.METHOD_FAILURE] = "METHOD_FAILURE";
+codes[exports.METHOD_NOT_ALLOWED] = "METHOD_NOT_ALLOWED";
+codes[exports.MOVED_PERMANENTLY] = "MOVED_PERMANENTLY";
+codes[exports.MOVED_TEMPORARILY] = "MOVED_TEMPORARILY";
+codes[exports.MULTI_STATUS] = "MULTI_STATUS";
+codes[exports.MULTIPLE_CHOICES] = "MULTIPLE_CHOICES";
+codes[exports.NETWORK_AUTHENTICATION_REQUIRED] = "NETWORK_AUTHENTICATION_REQUIRED";
+codes[exports.NO_CONTENT] = "NO_CONTENT";
+codes[exports.NON_AUTHORITATIVE_INFORMATION] = "NON_AUTHORITATIVE_INFORMATION";
+codes[exports.NOT_ACCEPTABLE] = "NOT_ACCEPTABLE";
+codes[exports.NOT_FOUND] = "NOT_FOUND";
+codes[exports.NOT_IMPLEMENTED] = "NOT_IMPLEMENTED";
+codes[exports.NOT_MODIFIED] = "NOT_MODIFIED";
+codes[exports.OK] = "OK";
+codes[exports.PARTIAL_CONTENT] = "PARTIAL_CONTENT";
+codes[exports.PAYMENT_REQUIRED] = "PAYMENT_REQUIRED";
+codes[exports.PERMANENT_REDIRECT] = "PERMANENT_REDIRECT";
+codes[exports.PRECONDITION_FAILED] = "PRECONDITION_FAILED";
+codes[exports.PRECONDITION_REQUIRED] = "PRECONDITION_REQUIRED";
+codes[exports.PROCESSING] = "PROCESSING";
+codes[exports.PROXY_AUTHENTICATION_REQUIRED] = "PROXY_AUTHENTICATION_REQUIRED";
+codes[exports.REQUEST_HEADER_FIELDS_TOO_LARGE] = "REQUEST_HEADER_FIELDS_TOO_LARGE";
+codes[exports.REQUEST_TIMEOUT] = "REQUEST_TIMEOUT";
+codes[exports.REQUEST_TOO_LONG] = "REQUEST_TOO_LONG";
+codes[exports.REQUEST_URI_TOO_LONG] = "REQUEST_URI_TOO_LONG";
+codes[exports.REQUESTED_RANGE_NOT_SATISFIABLE] = "REQUESTED_RANGE_NOT_SATISFIABLE";
+codes[exports.RESET_CONTENT] = "RESET_CONTENT";
+codes[exports.SEE_OTHER] = "SEE_OTHER";
+codes[exports.SERVICE_UNAVAILABLE] = "SERVICE_UNAVAILABLE";
+codes[exports.SWITCHING_PROTOCOLS] = "SWITCHING_PROTOCOLS";
+codes[exports.TEMPORARY_REDIRECT] = "TEMPORARY_REDIRECT";
+codes[exports.TOO_MANY_REQUESTS] = "TOO_MANY_REQUESTS";
+codes[exports.UNAUTHORIZED] = "UNAUTHORIZED";
+codes[exports.UNPROCESSABLE_ENTITY] = "UNPROCESSABLE_ENTITY";
+codes[exports.UNSUPPORTED_MEDIA_TYPE] = "UNSUPPORTED_MEDIA_TYPE";
+codes[exports.USE_PROXY] = "USE_PROXY";
+
+exports.getStatusCode = function (statusCode) {
+  if (codes.hasOwnProperty(statusCode)) {
+    return codes[statusCode];
+  } else {
+    throw new Error("Status code does not exist: " + statusCode);
+  }
+};
 
 exports.getStatusText = function(statusCode) {
   if (statusCodes.hasOwnProperty(statusCode)) {

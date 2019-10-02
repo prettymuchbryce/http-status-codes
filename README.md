@@ -21,10 +21,12 @@ response
 	.status(HttpStatus.OK)
 	.send('ok');
 
+var statusCode = HttpStatus.INTERNAL_SERVER_ERROR
 response
-	.status(HttpStatus.INTERNAL_SERVER_ERROR)
+	.status(statusCode)
 	.send({
-		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
+		code: HttpStatus.getStatusCode(statusCode)  // INTERNAL_SERVER_ERROR
+		error: HttpStatus.getStatusText(statusCode) // Server Error
 	});
 ```
 
@@ -102,11 +104,13 @@ response
 	.status(HttpStatus.OK)
 	.send('ok')
 
+const statusCode = HttpStatus.INTERNAL_SERVER_ERROR
 response
-	.status(HttpStatus.INTERNAL_SERVER_ERROR)
+	.status(statusCode)
 	.send({
-		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
-	})
+		code: HttpStatus.getStatusCode(statusCode)  // INTERNAL_SERVER_ERROR
+		error: HttpStatus.getStatusText(statusCode) // Server Error
+	});
 ```
 
 Option 2: Selective import
