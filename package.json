@@ -1,6 +1,6 @@
 {
   "name": "http-status-codes",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Constants enumerating the HTTP status codes. Based on the Java Apache HttpStatus API.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
