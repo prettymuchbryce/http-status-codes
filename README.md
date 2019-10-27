@@ -28,9 +28,9 @@ response
 	});
 
 response
-	.status(HttpStatus.getStatusCode('Server Error'))
+	.status(HttpStatus.getStatusCode('Internal Server Error'))
 	.send({
-		error: 'Server Error'
+		error: 'Internal Server Error'
 	});
 ```
 
@@ -53,7 +53,7 @@ HTTP_VERSION_NOT_SUPPORTED          | 505   | HTTP Version Not Supported
 IM_A_TEAPOT                         | 418   | I'm a teapot
 INSUFFICIENT_SPACE_ON_RESOURCE      | 419   | Insufficient Space on Resource
 INSUFFICIENT_STORAGE                | 507   | Insufficient Storage
-INTERNAL_SERVER_ERROR               | 500   | Server Error
+INTERNAL_SERVER_ERROR               | 500   | Internal Server Error
 LENGTH_REQUIRED                     | 411   | Length Required
 LOCKED                              | 423   | Locked
 METHOD_FAILURE                      | 420   | Method Failure
@@ -115,9 +115,9 @@ response
 	})
 
 response
-	.status(HttpStatus.getStatusCode('Server Error'))
+	.status(HttpStatus.getStatusCode('Internal Server Error'))
 	.send({
-		error: 'Server Error'
+		error: 'Internal Server Error'
 	})
 ```
 
@@ -131,6 +131,6 @@ response
 	.send(getStatusText(OK))
 
 response
-	.status(getStatusCode('Server Error')
-	.send('Server Error')
+	.status(getStatusCode('Internal Server Error')
+	.send('Internal Server Error')
 ```
