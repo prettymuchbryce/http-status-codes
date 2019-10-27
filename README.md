@@ -26,6 +26,12 @@ response
 	.send({
 		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
 	});
+
+response
+	.status(HttpStatus.getStatusCode('Server Error'))
+	.send({
+		error: 'Server Error'
+	});
 ```
 
 ## Codes
@@ -107,14 +113,24 @@ response
 	.send({
 		error: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR)
 	})
+
+response
+	.status(HttpStatus.getStatusCode('Server Error'))
+	.send({
+		error: 'Server Error'
+	})
 ```
 
 Option 2: Selective import
 
 ```typescript
-import { OK, getStatusText } from 'http-status-codes'
+import { OK, getStatusText, getStatusCode } from 'http-status-codes'
 
 response
 	.status(OK)
 	.send(getStatusText(OK))
+
+response
+	.status(getStatusCode('Server Error')
+	.send('Server Error')
 ```

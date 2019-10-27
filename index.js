@@ -74,3 +74,13 @@ exports.getStatusText = function(statusCode) {
     throw new Error("Status code does not exist: " + statusCode);
   }
 };
+
+exports.getStatusCode = function(reasonPhrase) {
+  for (key in statusCodes) {
+    if (statusCodes[key] === reasonPhrase) {
+      return parseInt(key, 10);
+    }
+  }
+  throw new Error("Reason phrase does not exist: " + reasonPhrase);
+};
+

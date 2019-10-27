@@ -327,5 +327,14 @@ export declare const USE_PROXY = 305;
  * Convert the numeric status code to its appropriate title.
  * @param statusCode One of the available status codes in this package
  * @returns {String} The associated title of the passed status code
+ * @throws {Error} The status code does not exist
  */
 export declare function getStatusText(statusCode: number): string;
+
+/**
+ * Convert the status reason phrase to its appropriate numeric value
+ * @param reasonPhrase One of the available reason phrases in this package
+ * @returns {Number} The associated status code of the passed reason phrase
+ * @throws {Error} The reason phrase does not exist
+ */
+export declare function getStatusCode(reasonPhrase: string): number;
