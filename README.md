@@ -25,9 +25,9 @@ response
 	.status(HttpStatus.INTERNAL_SERVER_ERROR)
 	.send({
 		error: {
-			statusCode: HttpStatus.INTERNAL_SERVER_ERROR,													// 500
-			code: HttpStatus.getCode(HttpStatus.INTERNAL_SERVER_ERROR),					 	// INTERNAL_SERVER_ERROR
-			message: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR), 	// Internal Server Error
+			statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+			code: HttpStatus.getCode(HttpStatus.INTERNAL_SERVER_ERROR),
+			message: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR),
 		}
 	});
 
@@ -120,9 +120,9 @@ response
 	.status(HttpStatus.INTERNAL_SERVER_ERROR)
 	.send({
 		error: {
-			statusCode: HttpStatus.INTERNAL_SERVER_ERROR,													// 500
-			code: HttpStatus.getCode(HttpStatus.INTERNAL_SERVER_ERROR),					 	// INTERNAL_SERVER_ERROR
-			message: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR), 	// Internal Server Error
+			statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+			code: HttpStatus.getCode(HttpStatus.INTERNAL_SERVER_ERROR),
+			message: HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR),
 		}
 	})
 
