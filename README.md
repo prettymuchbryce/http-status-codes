@@ -53,7 +53,7 @@ HTTP_VERSION_NOT_SUPPORTED          | 505   | HTTP Version Not Supported
 IM_A_TEAPOT                         | 418   | I'm a teapot
 INSUFFICIENT_SPACE_ON_RESOURCE      | 419   | Insufficient Space on Resource
 INSUFFICIENT_STORAGE                | 507   | Insufficient Storage
-INTERNAL_SERVER_ERROR               | 500   | Server Error
+INTERNAL_SERVER_ERROR               | 500   | Internal Server Error
 LENGTH_REQUIRED                     | 411   | Length Required
 LOCKED                              | 423   | Locked
 METHOD_FAILURE                      | 420   | Method Failure
