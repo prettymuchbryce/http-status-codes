@@ -2,7 +2,7 @@
  * Constants enumerating the HTTP status codes.
  *
  * All status codes defined in RFC1945 (HTTP/1.0, RFC2616 (HTTP/1.1),
- * RFC2518 (WebDAV), RFC6585 (Additional HTTP Status Codes), and
+ * RFC2518 (WebDAV), RFC5842 (WebDAV), RFC6585 (Additional HTTP Status Codes), and
  * RFC7538 (Permanent Redirect) are supported.
  *
  * Based on the org.apache.commons.httpclient.HttpStatus Java API.
@@ -13,6 +13,7 @@
 var statusCodes = {};
 
 statusCodes[exports.ACCEPTED = 202] = "Accepted";
+statusCodes[exports.ALREADY_REPORTED = 208] = "Already Reported";
 statusCodes[exports.BAD_GATEWAY = 502] = "Bad Gateway";
 statusCodes[exports.BAD_REQUEST = 400] = "Bad Request";
 statusCodes[exports.CONFLICT = 409] = "Conflict";
