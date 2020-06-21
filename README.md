@@ -36,62 +36,62 @@ response
 
 ## Codes
 
-Constant                            | Code  | Status Text
-------------------------------------|-------|-----------------------------------
-ACCEPTED                            | 202   | Accepted
-BAD_GATEWAY                         | 502   | Bad Gateway
-BAD_REQUEST                         | 400   | Bad Request
-CONFLICT                            | 409   | Conflict
-CONTINUE                            | 100   | Continue
-CREATED                             | 201   | Created
-EXPECTATION_FAILED                  | 417   | Expectation Failed
-FAILED_DEPENDENCY                   | 424   | Failed Dependency
-FORBIDDEN                           | 403   | Forbidden
-GATEWAY_TIMEOUT                     | 504   | Gateway Timeout
-GONE                                | 410   | Gone
-HTTP_VERSION_NOT_SUPPORTED          | 505   | HTTP Version Not Supported
-IM_A_TEAPOT                         | 418   | I'm a teapot
-INSUFFICIENT_SPACE_ON_RESOURCE      | 419   | Insufficient Space on Resource
-INSUFFICIENT_STORAGE                | 507   | Insufficient Storage
-INTERNAL_SERVER_ERROR               | 500   | Server Error
-LENGTH_REQUIRED                     | 411   | Length Required
-LOCKED                              | 423   | Locked
-METHOD_FAILURE                      | 420   | Method Failure
-METHOD_NOT_ALLOWED                  | 405   | Method Not Allowed
-MOVED_PERMANENTLY                   | 301   | Moved Permanently
-MOVED_TEMPORARILY                   | 302   | Moved Temporarily
-MULTI_STATUS                        | 207   | Multi-Status
-MULTIPLE_CHOICES                    | 300   | Multiple Choices
-NETWORK_AUTHENTICATION_REQUIRED     | 511   | Network Authentication Required
-NO_CONTENT                          | 204   | No Content
-NON_AUTHORITATIVE_INFORMATION       | 203   | Non Authoritative Information
-NOT_ACCEPTABLE                      | 406   | Not Acceptable
-NOT_FOUND                           | 404   | Not Found
-NOT_IMPLEMENTED                     | 501   | Not Implemented
-NOT_MODIFIED                        | 304   | Not Modified
-OK                                  | 200   | OK
-PARTIAL_CONTENT                     | 206   | Partial Content
-PAYMENT_REQUIRED                    | 402   | Payment Required
-PERMANENT_REDIRECT                  | 308   | Permanent Redirect
-PRECONDITION_FAILED                 | 412   | Precondition Failed
-PRECONDITION_REQUIRED               | 428   | Precondition Required
-PROCESSING                          | 102   | Processing
-PROXY_AUTHENTICATION_REQUIRED       | 407   | Proxy Authentication Required
-REQUEST_HEADER_FIELDS_TOO_LARGE     | 431   | Request Header Fields Too Large
-REQUEST_TIMEOUT                     | 408   | Request Timeout
-REQUEST_TOO_LONG                    | 413   | Request Entity Too Large
-REQUEST_URI_TOO_LONG                | 414   | Request-URI Too Long
-REQUESTED_RANGE_NOT_SATISFIABLE     | 416   | Requested Range Not Satisfiable
-RESET_CONTENT                       | 205   | Reset Content
-SEE_OTHER                           | 303   | See Other
-SERVICE_UNAVAILABLE                 | 503   | Service Unavailable
-SWITCHING_PROTOCOLS                 | 101   | Switching Protocols
-TEMPORARY_REDIRECT                  | 307   | Temporary Redirect
-TOO_MANY_REQUESTS                   | 429   | Too Many Requests
-UNAUTHORIZED                        | 401   | Unauthorized
-UNPROCESSABLE_ENTITY                | 422   | Unprocessable Entity
-UNSUPPORTED_MEDIA_TYPE              | 415   | Unsupported Media Type
-USE_PROXY                           | 305   | Use Proxy
+Code  | Constant                            | Status Text
+------|-------------------------------------|-----------------------------------
+100   | CONTINUE                            | Continue
+101   | SWITCHING_PROTOCOLS                 | Switching Protocols
+102   | PROCESSING                          | Processing
+200   | OK                                  | OK
+201   | CREATED                             | Created
+202   | ACCEPTED                            | Accepted
+203   | NON_AUTHORITATIVE_INFORMATION       | Non Authoritative Information
+204   | NO_CONTENT                          | No Content
+205   | RESET_CONTENT                       | Reset Content
+206   | PARTIAL_CONTENT                     | Partial Content
+207   | MULTI_STATUS                        | Multi-Status
+300   | MULTIPLE_CHOICES                    | Multiple Choices
+301   | MOVED_PERMANENTLY                   | Moved Permanently
+302   | MOVED_TEMPORARILY                   | Moved Temporarily
+303   | SEE_OTHER                           | See Other
+304   | NOT_MODIFIED                        | Not Modified
+305   | USE_PROXY                           | Use Proxy
+307   | TEMPORARY_REDIRECT                  | Temporary Redirect
+308   | PERMANENT_REDIRECT                  | Permanent Redirect
+400   | BAD_REQUEST                         | Bad Request
+401   | UNAUTHORIZED                        | Unauthorized
+402   | PAYMENT_REQUIRED                    | Payment Required
+403   | FORBIDDEN                           | Forbidden
+404   | NOT_FOUND                           | Not Found
+405   | METHOD_NOT_ALLOWED                  | Method Not Allowed
+406   | NOT_ACCEPTABLE                      | Not Acceptable
+407   | PROXY_AUTHENTICATION_REQUIRED       | Proxy Authentication Required
+408   | REQUEST_TIMEOUT                     | Request Timeout
+409   | CONFLICT                            | Conflict
+410   | GONE                                | Gone
+411   | LENGTH_REQUIRED                     | Length Required
+412   | PRECONDITION_FAILED                 | Precondition Failed
+413   | REQUEST_TOO_LONG                    | Request Entity Too Large
+414   | REQUEST_URI_TOO_LONG                | Request-URI Too Long
+415   | UNSUPPORTED_MEDIA_TYPE              | Unsupported Media Type
+416   | REQUESTED_RANGE_NOT_SATISFIABLE     | Requested Range Not Satisfiable
+417   | EXPECTATION_FAILED                  | Expectation Failed
+418   | IM_A_TEAPOT                         | I'm a teapot
+419   | INSUFFICIENT_SPACE_ON_RESOURCE      | Insufficient Space on Resource
+420   | METHOD_FAILURE                      | Method Failure
+422   | UNPROCESSABLE_ENTITY                | Unprocessable Entity
+423   | LOCKED                              | Locked
+424   | FAILED_DEPENDENCY                   | Failed Dependency
+428   | PRECONDITION_REQUIRED               | Precondition Required
+429   | TOO_MANY_REQUESTS                   | Too Many Requests
+431   | REQUEST_HEADER_FIELDS_TOO_LARGE     | Request Header Fields Too Large
+500   | INTERNAL_SERVER_ERROR               | Server Error
+501   | NOT_IMPLEMENTED                     | Not Implemented
+502   | BAD_GATEWAY                         | Bad Gateway
+503   | SERVICE_UNAVAILABLE                 | Service Unavailable
+504   | GATEWAY_TIMEOUT                     | Gateway Timeout
+505   | HTTP_VERSION_NOT_SUPPORTED          | HTTP Version Not Supported
+507   | INSUFFICIENT_STORAGE                | Insufficient Storage
+511   | NETWORK_AUTHENTICATION_REQUIRED     | Network Authentication Required
 
 ## TypeScript
 
