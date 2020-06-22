@@ -53,6 +53,7 @@ export enum StatusCodes {
   TEMPORARY_REDIRECT = 307,
   TOO_MANY_REQUESTS = 429,
   UNAUTHORIZED = 401,
+  UNAVAILABLE_FOR_LEGAL_REASONS = 451,
   UNPROCESSABLE_ENTITY = 422,
   UNSUPPORTED_MEDIA_TYPE = 415,
   USE_PROXY = 305,
@@ -414,6 +415,14 @@ export declare const TOO_MANY_REQUESTS = StatusCodes.TOO_MANY_REQUESTS;
  * Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
  */
 export declare const UNAUTHORIZED = StatusCodes.UNAUTHORIZED;
+
+/**
+ * Official Documentation @ https://tools.ietf.org/html/rfc7725#section-3.1
+ * 
+ * The request has been denied as a consequence of legal demands.
+ * 
+ */
+export declare const UNAVAILABLE_FOR_LEGAL_REASONS = StatusCodes.UNAVAILABLE_FOR_LEGAL_REASONS;
 
 /**
  * Official Documentation @ https://tools.ietf.org/html/rfc2518#section-10.3

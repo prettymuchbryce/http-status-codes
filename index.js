@@ -215,6 +215,10 @@ var statusCodeData = {
     statusCode: 401,
     reasonPhrase: "Unauthorized"
   },
+  UNAVAILABLE_FOR_LEGAL_REASONS: {
+    statusCode: 451,
+    reasonPhrase: "Unavailable For Legal Reasons"
+  },
   UNPROCESSABLE_ENTITY: {
     statusCode: 422,
     reasonPhrase: "Unprocessable Entity"

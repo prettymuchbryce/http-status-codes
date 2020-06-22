@@ -89,6 +89,7 @@ SWITCHING_PROTOCOLS                 | 101   | Switching Protocols
 TEMPORARY_REDIRECT                  | 307   | Temporary Redirect
 TOO_MANY_REQUESTS                   | 429   | Too Many Requests
 UNAUTHORIZED                        | 401   | Unauthorized
+UNAVAILABLE_FOR_LEGAL_REASONS       | 451   | Unavailable For Legal Reasons
 UNPROCESSABLE_ENTITY                | 422   | Unprocessable Entity
 UNSUPPORTED_MEDIA_TYPE              | 415   | Unsupported Media Type
 USE_PROXY                           | 305   | Use Proxy
