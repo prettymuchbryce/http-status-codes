@@ -8,6 +8,7 @@ export enum StatusCodes {
   CONFLICT = 409,
   CONTINUE = 100,
   CREATED = 201,
+  EARLY_HINTS = 103,
   EXPECTATION_FAILED = 417,
   FAILED_DEPENDENCY = 424,
   FORBIDDEN = 403,
@@ -100,6 +101,13 @@ export declare const CONTINUE = StatusCodes.CONTINUE;
  * The request has succeeded and a new resource has been created as a result of it. This is typically the response sent after a PUT request.
  */
 export declare const CREATED = StatusCodes.CREATED;
+
+/**
+ * Official Documentation @ https://tools.ietf.org/html/rfc8297#section-2.1
+ *
+ * The final response to be sent will likely contain the header fields included in this response, allowing the client to prepare for the response immediately.
+ */
+export declare const EARLY_HINTS = StatusCodes.EARLY_HINTS;
 
 /**
  * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.5.14

@@ -35,6 +35,10 @@ var statusCodeData = {
     statusCode: 201,
     reasonPhrase: "Created"
   },
+  EARLY_HINTS: {
+    statusCode: 103,
+    reasonPhrase: "Early Hints"
+  },
   EXPECTATION_FAILED: {
     statusCode: 417,
     reasonPhrase: "Expectation Failed"

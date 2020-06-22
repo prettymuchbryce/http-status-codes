@@ -44,6 +44,7 @@ BAD_REQUEST                         | 400   | Bad Request
 CONFLICT                            | 409   | Conflict
 CONTINUE                            | 100   | Continue
 CREATED                             | 201   | Created
+EARLY_HINTS                         | 103   | Early Hints
 EXPECTATION_FAILED                  | 417   | Expectation Failed
 FAILED_DEPENDENCY                   | 424   | Failed Dependency
 FORBIDDEN                           | 403   | Forbidden
