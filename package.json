@@ -1,6 +1,6 @@
 {
   "name": "http-status-codes",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Constants enumerating the HTTP status codes. Based on the Java Apache HttpStatus API.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,7 @@
     "url": "https://github.com/prettymuchbryce/node-http-status.git"
   },
   "main": "./index.js",
+  "module": "./index.mjs",
   "keywords": [
     "node",
     "http",
