@@ -70,9 +70,8 @@ statusCodes[exports.USE_PROXY = 305] = "Use Proxy";
 exports.getStatusText = function(statusCode) {
   if (statusCodes.hasOwnProperty(statusCode)) {
     return statusCodes[statusCode];
-  } else {
-    throw new Error("Status code does not exist: " + statusCode);
   }
+  throw new Error("Status code does not exist: " + statusCode);
 };
 
 exports.getStatusCode = function(reasonPhrase) {
