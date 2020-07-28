@@ -324,6 +324,12 @@ export declare const UNSUPPORTED_MEDIA_TYPE = 415;
  */
 export declare const USE_PROXY = 305;
 /**
+ * Official Documentation @ https://tools.ietf.org/html/rfc7725
+ *
+ * The user-agent requested a resource that cannot legally be provided, such as a web page censored by a government.
+ */
+export declare const UNAVAILABLE_FOR_LEGAL_REASONS = 451;
+/**
  * Convert the numeric status code to its appropriate title.
  * @param statusCode One of the available status codes in this package
  * @returns {String} The associated title of the passed status code
