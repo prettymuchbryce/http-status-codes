@@ -15,7 +15,7 @@ npm install http-status-codes --save
 ## Usage (express 4.x)
 
 ```javascript
-var { StatusCodes, ReasonPhrases, getReasonPhrase, getStatusCode } = require('http-status-codes');
+import { StatusCodes, ReasonPhrases, getReasonPhrase, getStatusCode } from 'http-status-codes';
 
 response
 	.status(StatusCodes.OK)
