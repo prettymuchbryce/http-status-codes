@@ -17,3 +17,4 @@ testing
 cover_html
 test.js
 .idea
+./build/**

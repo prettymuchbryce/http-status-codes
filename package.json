@@ -1,15 +1,18 @@
 {
   "name": "http-status-codes",
-  "version": "1.4.0",
+  "version": "2.0.0-beta.0",
   "description": "Constants enumerating the HTTP status codes. Based on the Java Apache HttpStatus API.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "update-codes": "ts-node --project ./scripts/tsconfig.json ./scripts/update-codes",
+    "build-ts": "tsc --project tsconfig-build.json",
+    "build": "npm run build-ts",
+    "test": "jest ./src"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/prettymuchbryce/node-http-status.git"
   },
-  "main": "./index.js",
+  "main": "./build/index.js",
   "keywords": [
     "node",
     "http",
@@ -21,5 +24,19 @@
   ],
   "author": "Bryce Neal",
   "license": "MIT",
-  "typings": "index.d.ts"
+  "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "@types/markdown-table": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "fs-extra": "^9.0.1",
+    "jest": "^26.4.0",
+    "markdown-table": "^2.0.0",
+    "ts-jest": "^26.2.0",
+    "ts-morph": "^7.3.0",
+    "typescript": "^3.9.7",
+    "@types/fs-extra": "^9.0.1"
+  }
 }
