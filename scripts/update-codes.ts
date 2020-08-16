@@ -40,7 +40,7 @@ const run = async () => {
   const statusCodeToReasonPhrase = Codes.reduce((acc, { code, phrase }) => { (acc as Record<string, string>)[`"${code.toString()}"`] = `"${phrase}"`; return acc; }, {});
   const reasonPhraseToStatusCode = Codes.reduce((acc, { code, phrase }) => { (acc as Record<string, number>)[`"${phrase}"`] = code; return acc; }, {});
 
-  project.createSourceFile('src/codes.ts', {
+  const sourceFile = project.createSourceFile('src/codes.ts', {
     statements: [{
       kind: StructureKind.Enum,
       name: 'StatusCodes',
@@ -78,6 +78,8 @@ const run = async () => {
   {
     overwrite: true,
   });
+
+  sourceFile.insertStatements(0, "// Generated file. Do not edit\n");
 
   await project.save();
   console.log('Successfully updated codes and generated src/codes.ts');
