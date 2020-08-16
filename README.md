@@ -95,19 +95,40 @@ response
 
 ## Migrating from v1.x.x
 
-If you are migrating from http-status-codes v1 to v2, there are a couple of changes that are
-recommended.
+v2 is backwards compatible with v1, but if you are migrating from http-status-codes v1 to v2, there are a couple of changes that are recommended.
 
-1: Rename `getStatusTest()` to `getReasonPhrase()`. The function is otherwise the same.
-2: Use selected imports rather than wildcard imports:
+### getStatusText renamed getReasonPhrase
 
-*bad*
+To fix this, simply rename `getStatusText()` to `getReasonPhrase()`. The function is otherwise the same as it was before.
+
+**bad** ❌
+
+```
+getStatusText(200);
+```
+
+**good** ✅
+
+```
+getReasonPhrase(200);
+```
+
+### No wildcard imports
+We're moving away from wildcard imports in favor of selective imports.
+
+**bad** ❌
+
+```typescript
 import * as HttpStatus from 'http-status-codes';
+```
 
-*good*
+**good** ✅
+
+```typescript
 import { StatusCodes } from 'http-status-codes';
 
-v2 is backwards compatible with v1, but these may be deprecated in a future major version.
+```
+These changes are __optional__ now, but may be required in a future major version so please consider making them now.
 
 
 ## Proposing a new status code
