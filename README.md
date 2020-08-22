@@ -133,9 +133,9 @@ These changes are __optional__ now, but may be required in a future major versio
 
 ## Proposing a new status code
 
-If you'd like to porpose a new status code, feel free to update "codes.json" with the necessary
-information and open a pull request. There is no need to modify any source code as it is all
-generated based on this file.
+If you'd like to propose a new status code, feel free to update "codes.json" with the necessary
+information and open a pull request. No need to modify source code or even this README.
+The update-codes script will handle this all for you.
 
 In general, we try to include only codes that have an official RFC and have been approved, however
 exceptions will be made if the code is already in widespread use in the wild.
@@ -144,6 +144,7 @@ exceptions will be made if the code is already in widespread use in the wild.
 
 ```shell
 npm run update-codes
+npm run test
 npm run build
 npm version [major | minor | patch]
 npm run publish

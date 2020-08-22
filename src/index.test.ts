@@ -51,6 +51,12 @@ describe('v2', () => {
     });
   });
 
+  test('getStatusCode', () => {
+    codes.forEach((o) => {
+      expect(getStatusCode(o.phrase)).toBe(o.code);
+    });
+  });
+
   test('getReasonPhrase nonexistent phrase', () => {
     expect(getReasonPhrase(9999999)).toBe(undefined);
   });

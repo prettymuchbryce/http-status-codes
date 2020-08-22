@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
+
 /**
  * This script should be run after modifying codes.json
  * It regenerates codes.ts, and updates the table in README.md
- **/
+ * */
 
-// eslint-disable no-console
 import fs from 'fs-extra';
 
 import {
@@ -14,16 +15,16 @@ import markdownTable from 'markdown-table';
 
 import Codes from '../codes.json';
 
-interface jsonCodeComment {
+interface JsonCodeComment {
   doc: string;
   description: string;
 }
 
-interface jsonCode {
+interface JsonCode {
   code: number;
   phrase: string;
   constant: string;
-  comment: jsonCodeComment;
+  comment: JsonCodeComment;
   isDeprecated?: boolean;
 }
 
@@ -34,11 +35,43 @@ const run = async () => {
     tsConfigFilePath: 'tsconfig.json',
   });
 
-  // TODO @prettymuchbryce clean up these horribly unreadable one-liners
-  const reasonPhraseMembers: OptionalKind<EnumMemberStructure>[] = Codes.map(({ phrase, constant, comment, isDeprecated }:jsonCode) => ({ name: constant, value: phrase, docs: [`${isDeprecated ? '@deprecated\n': ''}${comment.doc}\n\n${comment.description}`] }));
-  const statusCodeMembers: OptionalKind<EnumMemberStructure>[] = Codes.map(({ code, constant, comment, isDeprecated }:jsonCode) => ({ name: constant, value: code, docs: [`${isDeprecated ? '@deprecated\n' : ''}${comment.doc}\n\n${comment.description}`] }));
-  const statusCodeToReasonPhrase = Codes.reduce((acc, { code, phrase }) => { (acc as Record<string, string>)[`"${code.toString()}"`] = `"${phrase}"`; return acc; }, {});
-  const reasonPhraseToStatusCode = Codes.reduce((acc, { code, phrase }) => { (acc as Record<string, number>)[`"${phrase}"`] = code; return acc; }, {});
+  const reasonPhraseMembers: OptionalKind<EnumMemberStructure>[] = Codes
+    .map(({
+      phrase, constant, comment, isDeprecated,
+    }: JsonCode) => {
+      const { doc, description } = comment;
+      const deprecatedString = isDeprecated ? '@deprecated\n' : '';
+      return {
+        name: constant,
+        value: phrase,
+        docs: [`${deprecatedString}${doc}\n\n${description}`],
+      };
+    });
+
+  const statusCodeMembers: OptionalKind<EnumMemberStructure>[] = Codes
+    .map(({
+      code, constant, comment, isDeprecated,
+    }: JsonCode) => {
+      const { doc, description } = comment;
+      const deprecatedString = isDeprecated ? '@deprecated\n' : '';
+      return {
+        name: constant,
+        value: code,
+        docs: [`${deprecatedString}${doc}\n\n${description}`],
+      };
+    });
+
+  const statusCodeToReasonPhrase = Codes
+    .reduce((acc: Record<string, string>, { code, phrase }) => {
+      (acc as Record<string, string>)[`"${code.toString()}"`] = `"${phrase}"`;
+      return acc;
+    }, {});
+
+  const reasonPhraseToStatusCode = Codes
+    .reduce((acc: Record<string, number>, { code, phrase }) => {
+      (acc as Record<string, number>)[`"${phrase}"`] = code;
+      return acc;
+    }, {});
 
   const sourceFile = project.createSourceFile('src/codes.ts', {
     statements: [{
@@ -79,22 +112,22 @@ const run = async () => {
     overwrite: true,
   });
 
-  sourceFile.insertStatements(0, "// Generated file. Do not edit\n");
+  sourceFile.insertStatements(0, '// Generated file. Do not edit\n');
 
   await project.save();
   console.log('Successfully updated codes and generated src/codes.ts');
   console.log('Updating README.md table');
 
-  let readmeFile = await fs.readFile('./README.md', 'utf8')
-  const sortedCodes = Codes.sort((a:jsonCode, b:jsonCode) => { return (a.code - b.code) });
+  let readmeFile = await fs.readFile('./README.md', 'utf8');
+  const sortedCodes = Codes.sort((a:JsonCode, b:JsonCode) => (a.code - b.code));
 
   const table = markdownTable([
     ['Code', 'Constant', 'Reason Phrase'],
-    ...sortedCodes.map((code: jsonCode) => [code.code.toString(), code.constant, code.phrase]),
+    ...sortedCodes.map((code: JsonCode) => [code.code.toString(), code.constant, code.phrase]),
   ]);
 
-  const readmeRegex = /## Codes\n\n([^#]*)##/g
-  readmeFile = readmeFile.replace(readmeRegex, `## Codes \n\n${table}\n\n##`)
+  const readmeRegex = /## Codes\n\n([^#]*)##/g;
+  readmeFile = readmeFile.replace(readmeRegex, `## Codes \n\n${table}\n\n##`);
 
   fs.writeFile('./README.md', readmeFile);
   console.log('Successfully updated README.md table');
