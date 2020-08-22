@@ -1,12 +1,12 @@
 {
   "name": "http-status-codes",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "description": "Constants enumerating the HTTP status codes. Based on the Java Apache HttpStatus API.",
   "scripts": {
     "update-codes": "ts-node --project ./scripts/tsconfig.json ./scripts/update-codes",
     "build-ts": "tsc --project tsconfig-build.json",
-	"build-concat": "ncc build ./build-tmp/index.js -o ./build",
-	"build-cleanup": "rm -rf ./build-tmp",
+    "build-concat": "ncc build ./build-tmp/index.js -o ./build",
+    "build-cleanup": "rm -rf ./build-tmp",
     "build": "npm run build-ts && npm run build-concat && npm run build-cleanup",
     "lint": "eslint .",
     "test": "jest ./src"
