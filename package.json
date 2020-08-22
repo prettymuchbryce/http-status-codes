@@ -1,18 +1,25 @@
 {
   "name": "http-status-codes",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
   "description": "Constants enumerating the HTTP status codes. Based on the Java Apache HttpStatus API.",
   "scripts": {
     "update-codes": "ts-node --project ./scripts/tsconfig.json ./scripts/update-codes",
     "build-ts": "tsc --project tsconfig-build.json",
-    "build": "npm run build-ts",
-	"lint": "eslint .",
+	"build-concat": "ncc build ./build-tmp/index.js -o ./build",
+	"build-cleanup": "rm -rf ./build-tmp",
+    "build": "npm run build-ts && npm run build-concat && npm run build-cleanup",
+    "lint": "eslint .",
     "test": "jest ./src"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/prettymuchbryce/node-http-status.git"
   },
+  "files": [
+    "build/",
+    "LICENSE",
+    "README.MD"
+  ],
   "main": "./build/index.js",
   "keywords": [
     "node",
@@ -31,6 +38,7 @@
     "@types/markdown-table": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^3.9.0",
     "@typescript-eslint/parser": "^3.9.1",
+    "@vercel/ncc": "^0.23.0",
     "eslint": "^7.7.0",
     "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-plugin-import": "^2.22.0",

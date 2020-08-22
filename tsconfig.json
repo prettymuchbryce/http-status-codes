@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    "module": "commonjs",
     "target": "es5",
     "strict": true,
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./build/",
-    "resolveJsonModule": true
+    "outDir": "./build-tmp/",
+    "resolveJsonModule": true,
+	"moduleResolution": "node"
   },
   "include": ["./src/index.ts"]
 }
