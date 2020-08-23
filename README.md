@@ -100,28 +100,28 @@ response
 
 ## Migrating from v1.x.x
 
-http-status-codes v2 is mostly backwards compatible with v1, there is a single breaking change and two recommended changes.
+http-status-codes v2 is mostly backwards compatible with v1. There is a single breaking change and two recommended changes.
 
-### Breaking Change 'Server Error'
+#### [Breaking Change] 'Server Error'
 
-The reason phrase for the status code 500 has been changed from 'Server Error' to 'Internal Server Error'. This is the correct phrase according to RFC7231. If you have code that relies on the result of `getStatusText(500)` or `getReasonPhrase('Server Error')`, then this could affect you.
+The reason phrase for the status code `500` has been changed from `"Server Error"` to `"Internal Server Error"`. This is the correct phrase according to RFC7231. If you are migrating from v1, and have code that relies on the result of `getStatusText(500)` or `getReasonPhrase('Server Error')`, then this could affect you.
 
-### Non-breaking change getStatusText renamed getReasonPhrase
+#### [Non-breaking change] getStatusText renamed getReasonPhrase
 
-The function getStatusText has been renamed to getReasonPhrase. The old function is still available but may be deprecated in a future version. To fix this, simply rename `getStatusText()` to `getReasonPhrase()`. The function is otherwise the same as it was before.
+The function `getStatusText` has been renamed to `getReasonPhrase`. The old function is still available, but may be deprecated in a future version. To fix this simply rename instances of `getStatusText()` to `getReasonPhrase()`. The function is otherwise the same as it was before.
 
-### Non-breaking change StatusCodes
+#### [Non-breaking change] StatusCodes
 
-In http-status-codes v1, Status Codes were exported directly from the top-level module. i.e. `HttpStatus.OK`. In v2 all Status Codes live under an object called `HttpStatus.StatusCodes`. We made this change to cater to TypeScript users who prefer a dedicated value with an enum type. The previous values are still exported, but we won't continue to update them. Please migrate if you're using the old-style imports.
+In http-status-codes v1, Status Codes were exported directly from the top-level module. i.e. `HttpStatus.OK`. In v2 all Status Codes live under an object called `StatusCodes`. i.e. `HttpStatus.StatusCodes.OK`. We made this change to cater to TypeScript users who prefer a dedicated value with an enum type. The previous values are still exported, but we won't continue to update them. Please migrate if you're using the old-style imports.
 
 ## Proposing a new status code
 
 If you'd like to propose a new status code, feel free to update "codes.json" with the necessary
-information and open a pull request. No need to modify source code or even this README.
-The update-codes script will handle this all for you.
+information and open a pull request. There is no need to modify source code or even this README.
+This is done automatically by `npm run update-codes`.
 
 In general, we try to include only codes that have an official RFC and have been approved, however
-exceptions will be made if the code is already in widespread use in the wild.
+exceptions can be made if the code is already in widespread use in the wild.
 
 ## Steps to build and publish
 
