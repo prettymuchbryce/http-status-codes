@@ -71,10 +71,10 @@ describe('v2', () => {
   });
 
   test('getReasonPhrase nonexistent phrase', () => {
-    expect(getReasonPhrase(9999999)).toBe(undefined);
+    expect(() => { getReasonPhrase(9999999); }).toThrowError(/Status code does not exist: 9999999/);
   });
 
   test('getStatusCode nonexistent code', () => {
-    expect(getReasonPhrase('blah blah')).toBe(undefined);
+    expect(() => { getStatusCode('blah blah'); }).toThrowError(/Reason phrase does not exist: blah blah/);
   });
 });

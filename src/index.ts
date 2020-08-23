@@ -4,13 +4,17 @@ import {
 
 /**
  * Returns the reason phrase for the given status code.
- * If the given status code does not exist, undefined is returned.
+ * If the given status code does not exist, an error is thrown.
  *
  * @param {number|string} statusCode The HTTP status code
- * @returns {string|undefined} The associated reason phrase (e.g. "Bad Request", "OK")
+ * @returns {string} The associated reason phrase (e.g. "Bad Request", "OK")
  * */
-export function getReasonPhrase(statusCode: (number | string)): (string|undefined) {
-  return statusCodeToReasonPhrase[statusCode.toString()];
+export function getReasonPhrase(statusCode: (number | string)): (string) {
+  const result = statusCodeToReasonPhrase[statusCode.toString()];
+  if (!result) {
+    throw new Error(`Status code does not exist: ${statusCode}`);
+  }
+  return result;
 }
 
 /**
@@ -18,10 +22,14 @@ export function getReasonPhrase(statusCode: (number | string)): (string|undefine
  * If the given reason phrase does not exist, undefined is returned.
  *
  * @param {string} reasonPhrase The HTTP reason phrase (e.g. "Bad Request", "OK")
- * @returns {string|undefined} The associated status code
+ * @returns {string} The associated status code
  * */
-export function getStatusCode(reasonPhrase: string): (number|undefined) {
-  return reasonPhraseToStatusCode[reasonPhrase];
+export function getStatusCode(reasonPhrase: string): (number) {
+  const result = reasonPhraseToStatusCode[reasonPhrase];
+  if (!result) {
+    throw new Error(`Reason phrase does not exist: ${reasonPhrase}`);
+  }
+  return result;
 }
 
 /**
