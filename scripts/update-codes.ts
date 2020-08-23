@@ -127,7 +127,7 @@ const run = async () => {
   ]);
 
   const readmeRegex = /## Codes\n\n([^#]*)##/g;
-  readmeFile = readmeFile.replace(readmeRegex, `## Codes \n\n${table}\n\n##`);
+  readmeFile = readmeFile.replace(readmeRegex, `## Codes\n\n${table}\n\n##`);
 
   fs.writeFile('./README.md', readmeFile);
   console.log('Successfully updated README.md table');

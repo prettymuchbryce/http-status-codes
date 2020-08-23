@@ -56,7 +56,7 @@ response
 	});
 ```
 
-## Codes 
+## Codes
 
 | Code | Constant                        | Reason Phrase                   |
 | ---- | ------------------------------- | ------------------------------- |
@@ -106,7 +106,7 @@ response
 | 428  | PRECONDITION_REQUIRED           | Precondition Required           |
 | 429  | TOO_MANY_REQUESTS               | Too Many Requests               |
 | 431  | REQUEST_HEADER_FIELDS_TOO_LARGE | Request Header Fields Too Large |
-| 500  | INTERNAL_SERVER_ERROR           | Server Error                    |
+| 500  | INTERNAL_SERVER_ERROR           | Internal Server Error           |
 | 501  | NOT_IMPLEMENTED                 | Not Implemented                 |
 | 502  | BAD_GATEWAY                     | Bad Gateway                     |
 | 503  | SERVICE_UNAVAILABLE             | Service Unavailable             |
