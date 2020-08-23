@@ -12,9 +12,9 @@ TypeScript or JavaScript. Completely library agnostic. No dependencies.
 npm install http-status-codes --save
 ```
 
-## Usage (express 4.x)
+## ES6 Modules Usage (express 4.x)
 
-```javascript
+```typescript
 import { StatusCodes, ReasonPhrases, getReasonPhrase, getStatusCode } from 'http-status-codes';
 
 response
@@ -29,6 +29,28 @@ response
 
 response
 	.status(getStatusCode('Internal Server Error'))
+	.send({
+		error: 'Internal Server Error'
+	});
+```
+
+## CommonJS (Node) Usage (express 4.x)
+
+```javascript
+import HttpStatusCodes from 'http-status-codes';
+
+response
+	.status(HttpStatusCodes.StatusCodes.OK)
+	.send(HttpStatusCodes.ReasonPhrases.OK);
+
+response
+	.status(HttpStatusCodes.StatusCodes.INTERNAL_SERVER_ERROR)
+	.send({
+		error: HttpStatusCodes.getReasonPhrase(HttpStatusCodes.StatusCodes.INTERNAL_SERVER_ERROR)
+	});
+
+response
+	.status(HttpStatusCodes.getStatusCode('Internal Server Error'))
 	.send({
 		error: 'Internal Server Error'
 	});
@@ -95,41 +117,19 @@ response
 
 ## Migrating from v1.x.x
 
-v2 is backwards compatible with v1, but if you are migrating from http-status-codes v1 to v2, there are a couple of changes that are recommended.
+http-status-codes v2 is mostly backwards compatible with v1, there is a single breaking change and two recommended changes.
 
-### getStatusText renamed getReasonPhrase
+### Breaking Change 'Server Error'
 
-To fix this, simply rename `getStatusText()` to `getReasonPhrase()`. The function is otherwise the same as it was before.
+The reason phrase for the status code 500 has been changed from 'Server Error' to 'Internal Server Error'. This is the correct phrase according to RFC7231. If you have code that relies on the result of `getStatusText(500)` or `getReasonPhrase('Server Error')`, then this could affect you.
 
-**bad** ❌
+### Non-breaking change getStatusText renamed getReasonPhrase
 
-```
-getStatusText(200);
-```
+The function getStatusText has been renamed to getReasonPhrase. The old function is still available but may be deprecated in a future version. To fix this, simply rename `getStatusText()` to `getReasonPhrase()`. The function is otherwise the same as it was before.
 
-**good** ✅
+### Non-breaking change StatusCodes
 
-```
-getReasonPhrase(200);
-```
-
-### No wildcard imports
-We're moving away from wildcard imports in favor of selective imports.
-
-**bad** ❌
-
-```typescript
-import * as HttpStatus from 'http-status-codes';
-```
-
-**good** ✅
-
-```typescript
-import { StatusCodes } from 'http-status-codes';
-
-```
-These changes are __optional__ now, but may be required in a future major version so please consider making them now.
-
+In http-status-codes v1, Status Codes were exported directly from the top-level module. i.e. `HttpStatus.OK`. In v2 all Status Codes live under an object called `HttpStatus.StatusCodes`. We made this change to cater to TypeScript users who prefer a dedicated value with an enum type. The previous values are still exported, but we won't continue to update them. Please migrate if you're using the old-style imports.
 
 ## Proposing a new status code
 

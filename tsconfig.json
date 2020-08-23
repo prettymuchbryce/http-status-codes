@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "module": "es6",
-    "target": "es6",
+    "target": "es5",
+	"module": "es6",
     "strict": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
+	"declaration": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./build-tmp/",

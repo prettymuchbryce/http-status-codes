@@ -1,5 +1,6 @@
 import * as HttpStatusV1 from '../test/v1';
-import HttpStatusV2, {
+import * as HttpStatusV2 from './index';
+import {
   getReasonPhrase, getStatusCode, ReasonPhrases, StatusCodes,
 } from './index';
 import codes from '../codes.json';
