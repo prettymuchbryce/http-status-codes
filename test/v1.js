@@ -83,4 +83,3 @@ exports.getStatusCode = function(reasonPhrase) {
   }
   throw new Error("Reason phrase does not exist: " + reasonPhrase);
 };
-

@@ -77,7 +77,9 @@ export declare const HTTP_VERSION_NOT_SUPPORTED = 505;
  */
 export declare const IM_A_TEAPOT = 418;
 /**
- * UNOFFICIAL w/ NO DOCS
+ * Official Documentation @ https://tools.ietf.org/html/rfc2518#section-10.6
+ *
+ * The 507 (Insufficient Storage) status code means the method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request. This condition is considered to be temporary. If the request which received this status code was the result of a user action, the request MUST NOT be repeated until it is requested by a separate user action.
  */
 export declare const INSUFFICIENT_SPACE_ON_RESOURCE = 419;
 /**
@@ -105,7 +107,8 @@ export declare const LENGTH_REQUIRED = 411;
  */
 export declare const LOCKED = 423;
 /**
- * @deprecated
+ * Official Documentation @ https://tools.ietf.org/rfcdiff?difftype=--hwdiff&url2=draft-ietf-webdav-protocol-06.txt
+ *
  * A deprecated response used by the Spring Framework when a method has failed.
  */
 export declare const METHOD_FAILURE = 420;
@@ -153,6 +156,7 @@ export declare const NETWORK_AUTHENTICATION_REQUIRED = 511;
 export declare const NO_CONTENT = 204;
 /**
  * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.3.4
+ *
  * This response code means returned meta-information set is not exact set as available from the origin server, but collected from a local or a third party copy. Except this condition, 200 OK response should be preferred instead of this response.
  */
 export declare const NON_AUTHORITATIVE_INFORMATION = 203;
@@ -184,10 +188,6 @@ export declare const NOT_MODIFIED = 304;
  * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.3.1
  *
  * The request has succeeded. The meaning of a success varies depending on the HTTP method:
- * GET: The resource has been fetched and is transmitted in the message body.
- * HEAD: The entity headers are in the message body.
- * POST: The resource describing the result of the action is transmitted in the message body.
- * TRACE: The message body contains the request message as received by the server
  */
 export declare const OK = 200;
 /**
@@ -317,7 +317,6 @@ export declare const UNPROCESSABLE_ENTITY = 422;
  */
 export declare const UNSUPPORTED_MEDIA_TYPE = 415;
 /**
- * @deprecated
  * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.4.6
  *
  * Was defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. It has been deprecated due to security concerns regarding in-band configuration of a proxy.

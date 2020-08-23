@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+	"module": "es6",
+    "strict": true,
+    "esModuleInterop": true,
+	"declaration": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./build-tmp/",
+    "resolveJsonModule": true,
+	"moduleResolution": "node"
+  },
+  "include": ["./src/index.ts"]
+}
