@@ -131,5 +131,5 @@ npm run update-codes
 npm run test
 npm run build
 npm version [major | minor | patch]
-npm run publish
+npm publish
 ```
