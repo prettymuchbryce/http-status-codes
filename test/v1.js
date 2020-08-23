@@ -63,6 +63,7 @@ statusCodes[exports.SWITCHING_PROTOCOLS = 101] = "Switching Protocols";
 statusCodes[exports.TEMPORARY_REDIRECT = 307] = "Temporary Redirect";
 statusCodes[exports.TOO_MANY_REQUESTS = 429] = "Too Many Requests";
 statusCodes[exports.UNAUTHORIZED = 401] = "Unauthorized";
+statusCodes[exports.UNAVAILABLE_FOR_LEGAL_REASONS = 451] = "Unavailable For Legal Reasons";
 statusCodes[exports.UNPROCESSABLE_ENTITY = 422] = "Unprocessable Entity";
 statusCodes[exports.UNSUPPORTED_MEDIA_TYPE = 415] = "Unsupported Media Type";
 statusCodes[exports.USE_PROXY = 305] = "Use Proxy";
