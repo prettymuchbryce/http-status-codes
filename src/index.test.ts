@@ -8,34 +8,43 @@ import codes from '../codes.json';
 describe('Backwards compatability with v1', () => {
   test('Gets codes exported by constant', () => {
     codes.forEach((o) => {
-      expect((HttpStatusV1 as any)[o.constant]).toBe(o.code);
-      expect((HttpStatusV2 as any)[o.constant]).toBe(o.code);
+      // Only test codes that were made available in v1
+      if ((HttpStatusV1 as any)[o.constant] !== undefined) {
+        expect((HttpStatusV1 as any)[o.constant]).toBe(o.code);
+        expect((HttpStatusV2 as any)[o.constant]).toBe(o.code);
+      }
     });
   });
 
   test('Gets reason phrase from status code', () => {
     codes.forEach((o) => {
-      if (o.code !== 500) {
-        expect(HttpStatusV1.getStatusText(o.code)).toBe(o.phrase);
-        expect(HttpStatusV2.getStatusText(o.code)).toBe(o.phrase);
-      } else {
+      // Only test codes that were made available in v1
+      if ((HttpStatusV1 as any)[o.constant] !== undefined) {
+        if (o.code !== 500) {
+          expect(HttpStatusV1.getStatusText(o.code)).toBe(o.phrase);
+          expect(HttpStatusV2.getStatusText(o.code)).toBe(o.phrase);
+        } else {
         // Breaking Change. These are different.
-        expect(HttpStatusV1.getStatusText(o.code)).toBe('Server Error');
-        expect(HttpStatusV2.getStatusText(o.code)).toBe(o.phrase);
+          expect(HttpStatusV1.getStatusText(o.code)).toBe('Server Error');
+          expect(HttpStatusV2.getStatusText(o.code)).toBe(o.phrase);
+        }
       }
     });
   });
 
   test('Gets status code from phrase', () => {
     codes.forEach((o) => {
-      if (o.code !== 500) {
-        expect(HttpStatusV1.getStatusCode(o.phrase)).toBe(o.code);
-        // eslint-disable-next-line import/no-named-as-default-member
-        expect(HttpStatusV2.getStatusCode(o.phrase)).toBe(o.code);
-      } else {
+      // Only test codes that were made available in v1
+      if ((HttpStatusV1 as any)[o.constant] !== undefined) {
+        if (o.code !== 500) {
+          expect(HttpStatusV1.getStatusCode(o.phrase)).toBe(o.code);
+          // eslint-disable-next-line import/no-named-as-default-member
+          expect(HttpStatusV2.getStatusCode(o.phrase)).toBe(o.code);
+        } else {
         // Breaking Change. These are different.
-        expect(HttpStatusV1.getStatusCode('Server Error')).toBe(o.code);
-        expect(HttpStatusV2.getStatusCode(o.phrase)).toBe(o.code);
+          expect(HttpStatusV1.getStatusCode('Server Error')).toBe(o.code);
+          expect(HttpStatusV2.getStatusCode(o.phrase)).toBe(o.code);
+        }
       }
     });
   });

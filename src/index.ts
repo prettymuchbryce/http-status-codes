@@ -309,11 +309,6 @@ export const TOO_MANY_REQUESTS = 429;
  * */
 export const UNAUTHORIZED = 401;
 /**
- * @deprecated Please use StatusCodes.UNAVAILABLE_FOR_LEGAL_REASONS
- *
- * */
-export const UNAVAILABLE_FOR_LEGAL_REASONS = 451;
-/**
  * @deprecated Please use StatusCodes.UNPROCESSABLE_ENTITY
  *
  * */
