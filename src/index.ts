@@ -14,7 +14,7 @@ export function getReasonPhrase(statusCode: (number | string)): (string|undefine
 }
 
 /**
- * Returns the reason phrase for the given status code.
+ * Returns the status code for the given reason phrase.
  * If the given reason phrase does not exist, undefined is returned.
  *
  * @param {string} reasonPhrase The HTTP reason phrase (e.g. "Bad Request", "OK")
