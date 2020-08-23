@@ -312,6 +312,12 @@ export enum StatusCodes {
      */
     UNAUTHORIZED = 401,
     /**
+     * Official Documentation @ https://tools.ietf.org/html/rfc7725
+     *
+     * The user-agent requested a resource that cannot legally be provided, such as a web page censored by a government.
+     */
+    UNAVAILABLE_FOR_LEGAL_REASONS = 451,
+    /**
      * Official Documentation @ https://tools.ietf.org/html/rfc2518#section-10.3
      *
      * The request was well-formed but was unable to be followed due to semantic errors.
@@ -645,6 +651,12 @@ export enum ReasonPhrases {
      */
     UNAUTHORIZED = "Unauthorized",
     /**
+     * Official Documentation @ https://tools.ietf.org/html/rfc7725
+     *
+     * The user-agent requested a resource that cannot legally be provided, such as a web page censored by a government.
+     */
+    UNAVAILABLE_FOR_LEGAL_REASONS = "Unavailable For Legal Reasons",
+    /**
      * Official Documentation @ https://tools.ietf.org/html/rfc2518#section-10.3
      *
      * The request was well-formed but was unable to be followed due to semantic errors.
@@ -717,6 +729,7 @@ export const statusCodeToReasonPhrase: Record<string, string> = {
         "307": "Temporary Redirect",
         "429": "Too Many Requests",
         "401": "Unauthorized",
+        "451": "Unavailable For Legal Reasons",
         "422": "Unprocessable Entity",
         "415": "Unsupported Media Type",
         "305": "Use Proxy"
@@ -773,6 +786,7 @@ export const reasonPhraseToStatusCode: Record<string, number> = {
         "Temporary Redirect": 307,
         "Too Many Requests": 429,
         "Unauthorized": 401,
+        "Unavailable For Legal Reasons": 451,
         "Unprocessable Entity": 422,
         "Unsupported Media Type": 415,
         "Use Proxy": 305

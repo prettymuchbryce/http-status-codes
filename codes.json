@@ -460,6 +460,15 @@
     }
   },
   {
+    "code": 451,
+    "phrase": "Unavailable For Legal Reasons",
+    "constant": "UNAVAILABLE_FOR_LEGAL_REASONS",
+    "comment": {
+      "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7725",
+      "description": "The user-agent requested a resource that cannot legally be provided, such as a web page censored by a government."
+    }
+  },
+  {
     "code": 422,
     "phrase": "Unprocessable Entity",
     "constant": "UNPROCESSABLE_ENTITY",
