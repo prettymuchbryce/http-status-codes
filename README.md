@@ -12,10 +12,15 @@ TypeScript or JavaScript. Completely library agnostic. No dependencies.
 npm install http-status-codes --save
 ```
 
-## ES6 Modules Usage (express 4.x)
+## Usage (express 4.x)
 
 ```typescript
-import { StatusCodes, ReasonPhrases, getReasonPhrase, getStatusCode } from 'http-status-codes';
+import {
+	ReasonPhrases,
+	StatusCodes,
+	getReasonPhrase,
+	getStatusCode,
+} from 'http-status-codes';
 
 response
 	.status(StatusCodes.OK)
@@ -29,28 +34,6 @@ response
 
 response
 	.status(getStatusCode('Internal Server Error'))
-	.send({
-		error: 'Internal Server Error'
-	});
-```
-
-## CommonJS (Node) Usage (express 4.x)
-
-```javascript
-import HttpStatusCodes from 'http-status-codes';
-
-response
-	.status(HttpStatusCodes.StatusCodes.OK)
-	.send(HttpStatusCodes.ReasonPhrases.OK);
-
-response
-	.status(HttpStatusCodes.StatusCodes.INTERNAL_SERVER_ERROR)
-	.send({
-		error: HttpStatusCodes.getReasonPhrase(HttpStatusCodes.StatusCodes.INTERNAL_SERVER_ERROR)
-	});
-
-response
-	.status(HttpStatusCodes.getStatusCode('Internal Server Error'))
 	.send({
 		error: 'Internal Server Error'
 	});
