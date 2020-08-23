@@ -44,6 +44,7 @@
     "markdown-table": "^2.0.0",
     "ts-jest": "^26.2.0",
     "ts-morph": "^7.3.0",
+    "ts-node": "^9.0.0",
     "typescript": "^3.9.7"
   }
 }

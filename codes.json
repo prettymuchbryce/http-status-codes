@@ -136,11 +136,11 @@
   },
   {
     "code": 500,
-    "phrase": "Server Error",
+    "phrase": "Internal Server Error",
     "constant": "INTERNAL_SERVER_ERROR",
     "comment": {
       "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.6.1",
-      "description": "The server has encountered a situation it doesn't know how to handle."
+      "description": "The server encountered an unexpected condition that prevented it from fulfilling the request."
     }
   },
   {
@@ -149,7 +149,7 @@
     "constant": "LENGTH_REQUIRED",
     "comment": {
       "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.5.10",
-      "description": "Server rejected the request because the Content-Length header field is not defined and the server requires it."
+      "description": "The server rejected the request because the Content-Length header field is not defined and the server requires it."
     }
   },
   {

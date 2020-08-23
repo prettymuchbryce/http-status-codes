@@ -93,13 +93,13 @@ export enum StatusCodes {
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.6.1
      *
-     * The server has encountered a situation it doesn't know how to handle.
+     * The server encountered an unexpected condition that prevented it from fulfilling the request.
      */
     INTERNAL_SERVER_ERROR = 500,
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.5.10
      *
-     * Server rejected the request because the Content-Length header field is not defined and the server requires it.
+     * The server rejected the request because the Content-Length header field is not defined and the server requires it.
      */
     LENGTH_REQUIRED = 411,
     /**
@@ -426,13 +426,13 @@ export enum ReasonPhrases {
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.6.1
      *
-     * The server has encountered a situation it doesn't know how to handle.
+     * The server encountered an unexpected condition that prevented it from fulfilling the request.
      */
-    INTERNAL_SERVER_ERROR = "Server Error",
+    INTERNAL_SERVER_ERROR = "Internal Server Error",
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.5.10
      *
-     * Server rejected the request because the Content-Length header field is not defined and the server requires it.
+     * The server rejected the request because the Content-Length header field is not defined and the server requires it.
      */
     LENGTH_REQUIRED = "Length Required",
     /**
@@ -681,7 +681,7 @@ export const statusCodeToReasonPhrase: Record<string, string> = {
         "418": "I'm a teapot",
         "419": "Insufficient Space on Resource",
         "507": "Insufficient Storage",
-        "500": "Server Error",
+        "500": "Internal Server Error",
         "411": "Length Required",
         "423": "Locked",
         "420": "Method Failure",
@@ -737,7 +737,7 @@ export const reasonPhraseToStatusCode: Record<string, number> = {
         "I'm a teapot": 418,
         "Insufficient Space on Resource": 419,
         "Insufficient Storage": 507,
-        "Server Error": 500,
+        "Internal Server Error": 500,
         "Length Required": 411,
         "Locked": 423,
         "Method Failure": 420,
