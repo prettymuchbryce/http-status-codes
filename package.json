@@ -17,7 +17,8 @@
     "LICENSE",
     "README.MD"
   ],
-  "main": "./build/index.js",
+  "main": "./build/cjs/index.js",
+  "module": "./build/es/index.js",
   "keywords": [
     "node",
     "http",
