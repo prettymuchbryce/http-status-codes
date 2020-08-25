@@ -1,5 +1,6 @@
 {
   "name": "http-status-codes",
+  "sideEffects": false,
   "version": "2.1.2",
   "description": "Constants enumerating the HTTP status codes. Based on the Java Apache HttpStatus API.",
   "scripts": {
