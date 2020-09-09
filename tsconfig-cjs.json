@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+	"module": "commonjs",
+    "outDir": "./build/cjs/",
+    "resolveJsonModule": false 
+  },
+  "extends": "./tsconfig.json"
+}
