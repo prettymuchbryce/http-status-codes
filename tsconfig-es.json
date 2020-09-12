@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "target": "es6",
+	"module": "esnext",
     "resolveJsonModule": false,
     "outDir": "./build/es/"
   },
