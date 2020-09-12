@@ -8,7 +8,15 @@
 import fs from 'fs-extra';
 
 import {
-  Writers, VariableDeclarationKind, Project, StructureKind, EnumMemberStructure, OptionalKind,
+  EnumMemberStructure,
+  OptionalKind,
+  Project,
+  SourceFile,
+  StructureKind,
+  VariableDeclarationKind,
+  VariableStatement,
+  VariableStatementStructure,
+  Writers,
 } from 'ts-morph';
 
 import markdownTable from 'markdown-table';
@@ -35,29 +43,39 @@ const run = async () => {
     tsConfigFilePath: 'tsconfig.json',
   });
 
-  const reasonPhraseMembers: OptionalKind<EnumMemberStructure>[] = Codes
+  const statusCodeMembers: OptionalKind<VariableStatementStructure>[] = Codes
     .map(({
-      phrase, constant, comment, isDeprecated,
-    }: JsonCode) => {
+      code, constant, comment, isDeprecated,
+    }: JsonCode):OptionalKind<VariableStatementStructure> => {
       const { doc, description } = comment;
       const deprecatedString = isDeprecated ? '@deprecated\n' : '';
       return {
-        name: constant,
-        value: phrase,
+        isExported: true,
+        declarationKind: VariableDeclarationKind.Const,
         docs: [`${deprecatedString}${doc}\n\n${description}`],
+        declarations: [{
+          name: constant,
+          type: 'string',
+          initializer: `"${code}"`,
+        }],
       };
     });
 
-  const statusCodeMembers: OptionalKind<EnumMemberStructure>[] = Codes
+  const reasonPhraseMembers: OptionalKind<VariableStatementStructure>[] = Codes
     .map(({
-      code, constant, comment, isDeprecated,
-    }: JsonCode) => {
+      phrase, constant, comment, isDeprecated,
+    }: JsonCode):OptionalKind<VariableStatementStructure> => {
       const { doc, description } = comment;
       const deprecatedString = isDeprecated ? '@deprecated\n' : '';
       return {
-        name: constant,
-        value: code,
+        isExported: true,
+        declarationKind: VariableDeclarationKind.Const,
         docs: [`${deprecatedString}${doc}\n\n${description}`],
+        declarations: [{
+          name: constant,
+          type: 'string',
+          initializer: `"${phrase}"`,
+        }],
       };
     });
 
@@ -73,20 +91,14 @@ const run = async () => {
       return acc;
     }, {});
 
-  const sourceFile = project.createSourceFile('src/codes.ts', {
+  const statusCodesFile = project.createSourceFile('src/status-codes.ts', {}, { overwrite: true });
+  statusCodesFile.addVariableStatements(statusCodeMembers);
+
+  const reasonPhrasesFile = project.createSourceFile('src/reason-phrases.ts', {}, { overwrite: true });
+  reasonPhrasesFile.addVariableStatements(reasonPhraseMembers);
+
+  const helpersFile = project.createSourceFile('src/helpers.ts', {
     statements: [{
-      kind: StructureKind.Enum,
-      name: 'StatusCodes',
-      isExported: true,
-      members: statusCodeMembers,
-    },
-    {
-      kind: StructureKind.Enum,
-      name: 'ReasonPhrases',
-      isExported: true,
-      members: reasonPhraseMembers,
-    },
-    {
       kind: StructureKind.VariableStatement,
       isExported: true,
       declarationKind: VariableDeclarationKind.Const,
@@ -112,10 +124,12 @@ const run = async () => {
     overwrite: true,
   });
 
-  sourceFile.insertStatements(0, '// Generated file. Do not edit\n');
+  [statusCodesFile, reasonPhrasesFile, helpersFile].forEach((s) => {
+    s.insertStatements(0, '// Generated file. Do not edit\n');
+  });
 
   await project.save();
-  console.log('Successfully updated codes and generated src/codes.ts');
+  console.log('Successfully updated codes and generated source files');
   console.log('Updating README.md table');
 
   let readmeFile = await fs.readFile('./README.md', 'utf8');

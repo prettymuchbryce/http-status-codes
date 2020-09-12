@@ -1,6 +1,15 @@
 import {
-  StatusCodes, ReasonPhrases, reasonPhraseToStatusCode, statusCodeToReasonPhrase,
-} from './codes';
+  reasonPhraseToStatusCode, statusCodeToReasonPhrase,
+} from './helpers';
+
+// import type * as StatusCodesType from './status-codes';
+import * as StatusCodes from './status-codes';
+import * as ReasonPhrases from './reason-phrases';
+
+export {
+  StatusCodes,
+  ReasonPhrases,
+};
 
 /**
  * Returns the reason phrase for the given status code.
@@ -44,11 +53,6 @@ export function getStatusCode(reasonPhrase: string): (number) {
  * @returns {string|undefined} The associated reason phrase (e.g. "Bad Request", "OK")
  * */
 export const getStatusText = getReasonPhrase;
-
-export {
-  StatusCodes,
-  ReasonPhrases,
-};
 
 // Exporting constants directly to maintain compatability with v1
 // These are deprecated. Please don't add any new codes here.
