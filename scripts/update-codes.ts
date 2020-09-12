@@ -73,20 +73,34 @@ const run = async () => {
       return acc;
     }, {});
 
-  const sourceFile = project.createSourceFile('src/codes.ts', {
+  const statusCodeFile = project.createSourceFile('src/status-codes.ts', {
     statements: [{
       kind: StructureKind.Enum,
       name: 'StatusCodes',
       isExported: true,
       members: statusCodeMembers,
-    },
-    {
-      kind: StructureKind.Enum,
-      name: 'ReasonPhrases',
-      isExported: true,
-      members: reasonPhraseMembers,
-    },
-    {
+    }],
+  },
+  {
+    overwrite: true,
+  });
+
+  const reasonPhraseFile = project.createSourceFile('src/reason-phrases.ts', {
+    statements: [
+      {
+        kind: StructureKind.Enum,
+        name: 'ReasonPhrases',
+        isExported: true,
+        members: reasonPhraseMembers,
+      },
+    ],
+  },
+  {
+    overwrite: true,
+  });
+
+  const utilsFile = project.createSourceFile('src/utils.ts', {
+    statements: [{
       kind: StructureKind.VariableStatement,
       isExported: true,
       declarationKind: VariableDeclarationKind.Const,
@@ -112,7 +126,9 @@ const run = async () => {
     overwrite: true,
   });
 
-  sourceFile.insertStatements(0, '// Generated file. Do not edit\n');
+  [statusCodeFile, reasonPhraseFile, utilsFile].forEach((sf) => {
+    sf.insertStatements(0, '// Generated file. Do not edit\n');
+  });
 
   await project.save();
   console.log('Successfully updated codes and generated src/codes.ts');
