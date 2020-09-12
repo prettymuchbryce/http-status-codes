@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "resolveJsonModule": false 
+    "resolveJsonModule": false,
+    "outDir": "./build/es/"
   },
   "extends": "./tsconfig.json"
 }
