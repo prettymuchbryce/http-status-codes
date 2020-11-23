@@ -52,9 +52,7 @@ describe('Backwards compatability with v1', () => {
 
 describe('v2', () => {
   test('StatusCodes', () => {
-    // Divide by two because TypeScript enums contain both key and value
-    // when values are Number types
-    expect(Object.keys(StatusCodes).length / 2).toBe(codes.length);
+    expect(Object.keys(StatusCodes).length).toBe(codes.length);
     codes.forEach((o) => {
       expect((<any>StatusCodes)[o.constant]).toBe(o.code as number);
     });

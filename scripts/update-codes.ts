@@ -8,7 +8,11 @@
 import fs from 'fs-extra';
 
 import {
-  Writers, VariableDeclarationKind, Project, StructureKind, EnumMemberStructure, OptionalKind,
+  Project,
+  StatementStructures,
+  StructureKind,
+  VariableDeclarationKind,
+  Writers,
 } from 'ts-morph';
 
 import markdownTable from 'markdown-table';
@@ -35,29 +39,39 @@ const run = async () => {
     tsConfigFilePath: 'tsconfig.json',
   });
 
-  const reasonPhraseMembers: OptionalKind<EnumMemberStructure>[] = Codes
+  const reasonPhraseMembers: StatementStructures[] = Codes
     .map(({
       phrase, constant, comment, isDeprecated,
-    }: JsonCode) => {
+    }: JsonCode): StatementStructures => {
       const { doc, description } = comment;
       const deprecatedString = isDeprecated ? '@deprecated\n' : '';
       return {
-        name: constant,
-        value: phrase,
         docs: [`${deprecatedString}${doc}\n\n${description}`],
+        kind: StructureKind.VariableStatement,
+        declarationKind: VariableDeclarationKind.Const,
+        isExported: true,
+        declarations: [{
+          name: constant,
+          initializer: `"${phrase}"`,
+        }],
       };
     });
 
-  const statusCodeMembers: OptionalKind<EnumMemberStructure>[] = Codes
+  const statusCodeMembers: StatementStructures[] = Codes
     .map(({
       code, constant, comment, isDeprecated,
-    }: JsonCode) => {
+    }: JsonCode): StatementStructures => {
       const { doc, description } = comment;
       const deprecatedString = isDeprecated ? '@deprecated\n' : '';
       return {
-        name: constant,
-        value: code,
         docs: [`${deprecatedString}${doc}\n\n${description}`],
+        kind: StructureKind.VariableStatement,
+        declarationKind: VariableDeclarationKind.Const,
+        isExported: true,
+        declarations: [{
+          name: constant,
+          initializer: code.toString(),
+        }],
       };
     });
 
@@ -74,26 +88,14 @@ const run = async () => {
     }, {});
 
   const statusCodeFile = project.createSourceFile('src/status-codes.ts', {
-    statements: [{
-      kind: StructureKind.Enum,
-      name: 'StatusCodes',
-      isExported: true,
-      members: statusCodeMembers,
-    }],
+    statements: statusCodeMembers,
   },
   {
     overwrite: true,
   });
 
   const reasonPhraseFile = project.createSourceFile('src/reason-phrases.ts', {
-    statements: [
-      {
-        kind: StructureKind.Enum,
-        name: 'ReasonPhrases',
-        isExported: true,
-        members: reasonPhraseMembers,
-      },
-    ],
+    statements: reasonPhraseMembers,
   },
   {
     overwrite: true,
