@@ -63,7 +63,7 @@ export enum ReasonPhrases {
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.5.9
      *
-     * This response would be sent when the requested content has been permenantly deleted from server, with no forwarding address. Clients are expected to remove their caches and links to the resource. The HTTP specification intends this status code to be used for "limited-time, promotional services". APIs should not feel compelled to indicate resources that have been deleted with this status code.
+     * This response would be sent when the requested content has been permanently deleted from server, with no forwarding address. Clients are expected to remove their caches and links to the resource. The HTTP specification intends this status code to be used for "limited-time, promotional services". APIs should not feel compelled to indicate resources that have been deleted with this status code.
      */
     GONE = "Gone",
     /**
@@ -172,7 +172,7 @@ export enum ReasonPhrases {
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.5.4
      *
-     * The server can not find requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 to hide the existence of a resource from an unauthorized client. This response code is probably the most famous one due to its frequent occurence on the web.
+     * The server can not find requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 to hide the existence of a resource from an unauthorized client. This response code is probably the most famous one due to its frequent occurrence on the web.
      */
     NOT_FOUND = "Not Found",
     /**
