@@ -495,5 +495,14 @@
       "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.4.6",
       "description": "Was defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. It has been deprecated due to security concerns regarding in-band configuration of a proxy."
     }
+  },
+  {
+    "code": 426,
+    "phrase": "Upgrade Required",
+    "constant": "UPGRADE_REQUIRED",
+    "comment": {
+      "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.15",
+      "description": "The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol."
+    }
   }
 ]
