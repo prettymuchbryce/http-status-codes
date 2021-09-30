@@ -495,5 +495,15 @@
       "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.4.6",
       "description": "Was defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. It has been deprecated due to security concerns regarding in-band configuration of a proxy."
     }
+  },
+  {
+    "code": 421,
+    "phrase": "Misdirected Request",
+    "constant": "MISDIRECTED_REQUEST",
+    "isDeprecated": false,
+    "comment": {
+      "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7540#section-9.1.2",
+      "description": "Defined in the specification of HTTP/2 to indicate that a server is not configured to produce a response with the given URI."
+    }
   }
 ]
