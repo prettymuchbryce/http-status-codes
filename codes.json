@@ -503,7 +503,7 @@
     "isDeprecated": false,
     "comment": {
       "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7540#section-9.1.2",
-      "description": "Defined in the specification of HTTP/2 to indicate that a server is not configured to produce a response with the given URI."
+      "description": "Defined in the specification of HTTP/2 to indicate that a server is not able to produce a response for the combination of scheme and authority that are included in the request URI."
     }
   }
 ]
