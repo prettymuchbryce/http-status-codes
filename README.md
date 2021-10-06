@@ -83,6 +83,7 @@ response
 | 418  | IM_A_TEAPOT                     | I'm a teapot                    |
 | 419  | INSUFFICIENT_SPACE_ON_RESOURCE  | Insufficient Space on Resource  |
 | 420  | METHOD_FAILURE                  | Method Failure                  |
+| 421  | MISDIRECTED_REQUEST             | Misdirected Request             |
 | 422  | UNPROCESSABLE_ENTITY            | Unprocessable Entity            |
 | 423  | LOCKED                          | Locked                          |
 | 424  | FAILED_DEPENDENCY               | Failed Dependency               |

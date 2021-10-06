@@ -335,5 +335,11 @@ export enum StatusCodes {
      *
      * Was defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. It has been deprecated due to security concerns regarding in-band configuration of a proxy.
      */
-    USE_PROXY = 305
+    USE_PROXY = 305,
+    /**
+     * Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7540#section-9.1.2
+     *
+     * Defined in the specification of HTTP/2 to indicate that a server is not able to produce a response for the combination of scheme and authority that are included in the request URI.
+     */
+    MISDIRECTED_REQUEST = 421
 }

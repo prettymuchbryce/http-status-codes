@@ -54,7 +54,8 @@ export const statusCodeToReasonPhrase: Record<string, string> = {
         "451": "Unavailable For Legal Reasons",
         "422": "Unprocessable Entity",
         "415": "Unsupported Media Type",
-        "305": "Use Proxy"
+        "305": "Use Proxy",
+        "421": "Misdirected Request"
     };
 export const reasonPhraseToStatusCode: Record<string, number> = {
         "Accepted": 202,
@@ -111,5 +112,6 @@ export const reasonPhraseToStatusCode: Record<string, number> = {
         "Unavailable For Legal Reasons": 451,
         "Unprocessable Entity": 422,
         "Unsupported Media Type": 415,
-        "Use Proxy": 305
+        "Use Proxy": 305,
+        "Misdirected Request": 421
     };
