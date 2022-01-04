@@ -134,3 +134,5 @@ npm run build
 npm version [major | minor | patch]
 npm publish
 ```
+
+After releasing, please add release notes via GitHub Releases.
