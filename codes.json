@@ -351,7 +351,15 @@
       "description": "This code indicates to the client that the server is likely to send a final response with the header fields included in the informational response."
     }
   },
-  
+  {
+    "code": 426,
+    "phrase": "Upgrade Required",
+    "constant": "UPGRADE_REQUIRED",
+    "comment": {
+      "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.15",
+      "description": "The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol."
+    }
+  },
   {
     "code": 407,
     "phrase": "Proxy Authentication Required",
