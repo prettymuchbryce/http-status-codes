@@ -46,6 +46,7 @@ response
 | 100  | CONTINUE                        | Continue                        |
 | 101  | SWITCHING_PROTOCOLS             | Switching Protocols             |
 | 102  | PROCESSING                      | Processing                      |
+| 103  | EARLY_HINTS                     | Early Hints                     |
 | 200  | OK                              | OK                              |
 | 201  | CREATED                         | Created                         |
 | 202  | ACCEPTED                        | Accepted                        |
