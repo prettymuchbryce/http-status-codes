@@ -59,7 +59,7 @@ const run = async () => {
         value: code,
         docs: [`${deprecatedString}${doc}\n\n${description}`],
       };
-    }).sort(({value: aValue}, {value : bValue}) => aValue - bValue);
+    }).sort(({ value: aValue }, { value: bValue }) => aValue - bValue);
 
   const statusCodeToReasonPhrase = Codes
     .reduce((acc: Record<string, string>, { code, phrase }) => {
