@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Informational",
+        "constant": "Informational",
+        "range": {
+            "min": 100,
+            "max": 199
+        },
+        "comment": {
+            "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.2"
+        }
+    },
+    {
+        "name": "Successful",
+        "constant": "Successful",
+        "range": {
+            "min": 200,
+            "max": 299
+        },
+        "comment": {
+            "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.3"
+        }
+    },
+    {
+        "name": "Redirection",
+        "constant": "Redirection",
+        "range": {
+            "min": 300,
+            "max": 399
+        },
+        "comment": {
+            "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.4"
+        }
+    },
+    {
+        "name": "ClientError",
+        "constant": "ClientError",
+        "range": {
+            "min": 400,
+            "max": 499
+        },
+        "comment": {
+            "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.5"
+        }
+    },
+    {
+        "name": "ServerError",
+        "constant": "ServerError",
+        "range": {
+            "min": 500,
+            "max": 599
+        },
+        "comment": {
+            "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.6"
+        }
+    }
+]
