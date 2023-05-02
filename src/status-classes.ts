@@ -5,7 +5,7 @@ export namespace StatusClasses {
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.2
      *
-     * Union of all status codes between 100 and 200:
+     * Union of all status codes between 100 and 199:
      * - StatusCodes.CONTINUE
      * - StatusCodes.PROCESSING
      * - StatusCodes.SWITCHING_PROTOCOLS
@@ -17,7 +17,7 @@ export namespace StatusClasses {
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.3
      *
-     * Union of all status codes between 200 and 300:
+     * Union of all status codes between 200 and 299:
      * - StatusCodes.ACCEPTED
      * - StatusCodes.CREATED
      * - StatusCodes.MULTI_STATUS
@@ -39,7 +39,7 @@ export namespace StatusClasses {
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.4
      *
-     * Union of all status codes between 300 and 400:
+     * Union of all status codes between 300 and 399:
      * - StatusCodes.MOVED_PERMANENTLY
      * - StatusCodes.MOVED_TEMPORARILY
      * - StatusCodes.MULTIPLE_CHOICES
@@ -61,7 +61,7 @@ export namespace StatusClasses {
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.5
      *
-     * Union of all status codes between 400 and 500:
+     * Union of all status codes between 400 and 499:
      * - StatusCodes.BAD_REQUEST
      * - StatusCodes.CONFLICT
      * - StatusCodes.EXPECTATION_FAILED
@@ -125,7 +125,7 @@ export namespace StatusClasses {
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.6
      *
-     * Union of all status codes between 500 and 600:
+     * Union of all status codes between 500 and 599:
      * - StatusCodes.BAD_GATEWAY
      * - StatusCodes.GATEWAY_TIMEOUT
      * - StatusCodes.HTTP_VERSION_NOT_SUPPORTED

@@ -20,6 +20,7 @@ import {
 import markdownTable from 'markdown-table';
 
 import Codes from '../codes.json';
+import Classes from '../classes.json';
 
 interface JsonCodeComment {
   doc: string;
@@ -67,22 +68,26 @@ const run = async () => {
       };
     }).sort(({ value: aValue }, { value: bValue }) => aValue - bValue);
 
-  const statusClassStatements: StatementStructures[] = ['Informational', 'Successful', 'Redirection', 'ClientError', 'ServerError'].map((className, i) => {
-    const codesInRange = Codes.filter(
-      (code) => code.code >= (100 * i + 100) && code.code < (100 * i + 200),
-    );
-    const codesAsTypeString = codesInRange.map((code) => `StatusCodes.${code.constant}`);
-    const officialDocsString = `Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.${2 + i}`;
-    const rangeDescriptorString = `Union of all status codes between ${100 * i + 100} and ${100 * i + 200}:`;
-    const comprehensiveListOfTypes = '- '.concat(codesAsTypeString.join('\n- '));
-    return {
-      docs: [`${officialDocsString}\n\n${rangeDescriptorString}\n${comprehensiveListOfTypes}`],
-      kind: StructureKind.TypeAlias,
-      name: className,
-      type: '\n| '.concat(codesAsTypeString.join('\n| ')),
-      isExported: true,
-    };
-  });
+  const statusClassStatements: StatementStructures[] = Classes
+    .map(({
+      constant, range, comment,
+    }) => {
+      const codesInRange = Codes.filter(
+        (code) => code.code >= range.min && code.code <= range.max,
+      );
+
+      const codesAsTypeString = codesInRange.map((code) => `StatusCodes.${code.constant}`);
+      const rangeDescriptorString = `Union of all status codes between ${range.min} and ${range.max}:`;
+      const comprehensiveListOfTypes = '- '.concat(codesAsTypeString.join('\n- '));
+
+      return {
+        docs: [`${comment.doc}\n\n${rangeDescriptorString}\n${comprehensiveListOfTypes}`],
+        kind: StructureKind.TypeAlias,
+        name: constant,
+        type: '\n| '.concat(codesAsTypeString.join('\n| ')),
+        isExported: true,
+      };
+    });
 
   const statusCodeToReasonPhrase = Codes
     .reduce((acc: Record<string, string>, { code, phrase }) => {
@@ -188,6 +193,15 @@ const run = async () => {
 
   const readmeRegex = /## Codes\n\n([^#]*)##/g;
   readmeFile = readmeFile.replace(readmeRegex, `## Codes\n\n${table}\n\n##`);
+
+  const sortedClasses = Classes.sort((a, b) => (a.range.min - b.range.min));
+  const classTable = markdownTable([
+    ['Constant', 'Range'],
+    ...sortedClasses.map(({ constant, range }) => [constant, `${range.min} - ${range.max}`]),
+  ]);
+
+  const readmeClassRegex = /## Classes\n\n([^#]*)##/g;
+  readmeFile = readmeFile.replace(readmeClassRegex, `## Classes\n\n${classTable}\n\n##`);
 
   fs.writeFile('./README.md', readmeFile);
   console.log('Successfully updated README.md table');

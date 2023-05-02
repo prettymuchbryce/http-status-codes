@@ -100,6 +100,16 @@ response
 | 507  | INSUFFICIENT_STORAGE            | Insufficient Storage            |
 | 511  | NETWORK_AUTHENTICATION_REQUIRED | Network Authentication Required |
 
+## Classes
+
+| Constant      | Range     |
+| ------------- | --------- |
+| Informational | 100 - 199 |
+| Successful    | 200 - 299 |
+| Redirection   | 300 - 399 |
+| ClientError   | 400 - 499 |
+| ServerError   | 500 - 599 |
+
 ## Migrating from v1.x.x
 
 http-status-codes v2 is mostly backwards compatible with v1. There is a single breaking change and two recommended changes.
