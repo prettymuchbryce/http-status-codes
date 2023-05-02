@@ -8,7 +8,13 @@
 import fs from 'fs-extra';
 
 import {
-  Writers, VariableDeclarationKind, Project, StructureKind, EnumMemberStructure, OptionalKind,
+  Writers,
+  VariableDeclarationKind,
+  Project,
+  StructureKind,
+  EnumMemberStructure,
+  OptionalKind,
+  StatementStructures,
 } from 'ts-morph';
 
 import markdownTable from 'markdown-table';
@@ -61,6 +67,23 @@ const run = async () => {
       };
     }).sort(({ value: aValue }, { value: bValue }) => aValue - bValue);
 
+  const statusClassStatements: StatementStructures[] = ['Informational', 'Successful', 'Redirection', 'ClientError', 'ServerError'].map((className, i) => {
+    const codesInRange = Codes.filter(
+      (code) => code.code >= (100 * i + 100) && code.code < (100 * i + 200),
+    );
+    const codesAsTypeString = codesInRange.map((code) => `StatusCodes.${code.constant}`);
+    const officialDocsString = `Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.${2 + i}`;
+    const rangeDescriptorString = `Union of all status codes between ${100 * i + 100} and ${100 * i + 200}:`;
+    const comprehensiveListOfTypes = '- '.concat(codesAsTypeString.join('\n- '));
+    return {
+      docs: [`${officialDocsString}\n\n${rangeDescriptorString}\n${comprehensiveListOfTypes}`],
+      kind: StructureKind.TypeAlias,
+      name: className,
+      type: '\n| '.concat(codesAsTypeString.join('\n| ')),
+      isExported: true,
+    };
+  });
+
   const statusCodeToReasonPhrase = Codes
     .reduce((acc: Record<string, string>, { code, phrase }) => {
       (acc as Record<string, string>)[`"${code.toString()}"`] = `"${phrase}"`;
@@ -83,6 +106,27 @@ const run = async () => {
   },
   {
     overwrite: true,
+  });
+
+  const statusClassFile = project.createSourceFile('src/status-classes.ts', {
+    statements: [
+      {
+        kind: StructureKind.Namespace,
+        name: 'StatusClasses',
+        isExported: true,
+        statements: statusClassStatements,
+      },
+    ],
+  }, {
+    overwrite: true,
+  });
+  statusClassFile.addImportDeclaration({
+    namedImports: [
+      {
+        name: 'StatusCodes',
+      },
+    ],
+    moduleSpecifier: './status-codes',
   });
 
   const reasonPhraseFile = project.createSourceFile('src/reason-phrases.ts', {
@@ -126,7 +170,7 @@ const run = async () => {
     overwrite: true,
   });
 
-  [statusCodeFile, reasonPhraseFile, utilsFile].forEach((sf) => {
+  [statusCodeFile, statusClassFile, reasonPhraseFile, utilsFile].forEach((sf) => {
     sf.insertStatements(0, '// Generated file. Do not edit\n');
   });
 
