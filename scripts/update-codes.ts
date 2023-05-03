@@ -89,6 +89,40 @@ const run = async () => {
       };
     });
 
+  const statusClassNamespaces: StatementStructures[] = Classes
+    .map(({
+      constant, range, comment,
+    }) => {
+      const codesInRange = Codes.filter(
+        (code) => code.code >= range.min && code.code <= range.max,
+      );
+
+      const codesAsTypeString = codesInRange.map((code) => `StatusCodes.${code.constant}`);
+      const rangeDescriptorString = `Union of all status codes between ${range.min} and ${range.max}:`;
+      const comprehensiveListOfTypes = '- '.concat(codesAsTypeString.join('\n- '));
+
+      const temp: StatementStructures = {
+        docs: [`${comment.doc}\n\n${rangeDescriptorString}\n${comprehensiveListOfTypes}`],
+        kind: StructureKind.Namespace,
+        name: constant,
+        isExported: true,
+        statements: [
+          {
+            docs: ['List of all codes'],
+            kind: StructureKind.VariableStatement,
+            isExported: true,
+            declarationKind: VariableDeclarationKind.Const,
+            declarations: [{
+              name: 'LIST',
+              type: 'Number[]',
+              initializer: `[\n${(codesInRange.map((code) => `StatusCodes.${code.constant}`)).join(',\n')}\n]`,
+            }],
+          },
+        ],
+      };
+      return temp;
+    });
+
   const statusCodeToReasonPhrase = Codes
     .reduce((acc: Record<string, string>, { code, phrase }) => {
       (acc as Record<string, string>)[`"${code.toString()}"`] = `"${phrase}"`;
@@ -119,7 +153,7 @@ const run = async () => {
         kind: StructureKind.Namespace,
         name: 'StatusClasses',
         isExported: true,
-        statements: statusClassStatements,
+        statements: [...statusClassStatements, ...statusClassNamespaces],
       },
     ],
   }, {
