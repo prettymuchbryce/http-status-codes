@@ -16,6 +16,10 @@ export {
 } from './status-codes';
 
 export {
+  StatusClasses,
+} from './status-classes';
+
+export {
   ReasonPhrases,
 } from './reason-phrases';
 

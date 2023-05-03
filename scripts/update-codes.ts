@@ -8,12 +8,19 @@
 import fs from 'fs-extra';
 
 import {
-  Writers, VariableDeclarationKind, Project, StructureKind, EnumMemberStructure, OptionalKind,
+  Writers,
+  VariableDeclarationKind,
+  Project,
+  StructureKind,
+  EnumMemberStructure,
+  OptionalKind,
+  StatementStructures,
 } from 'ts-morph';
 
 import markdownTable from 'markdown-table';
 
 import Codes from '../codes.json';
+import Classes from '../classes.json';
 
 interface JsonCodeComment {
   doc: string;
@@ -59,7 +66,62 @@ const run = async () => {
         value: code,
         docs: [`${deprecatedString}${doc}\n\n${description}`],
       };
-    }).sort(({value: aValue}, {value : bValue}) => aValue - bValue);
+    }).sort(({ value: aValue }, { value: bValue }) => aValue - bValue);
+
+  const statusClassStatements: StatementStructures[] = Classes
+    .map(({
+      constant, range, comment,
+    }) => {
+      const codesInRange = Codes.filter(
+        (code) => code.code >= range.min && code.code <= range.max,
+      );
+
+      const codesAsTypeString = codesInRange.map((code) => `StatusCodes.${code.constant}`);
+      const rangeDescriptorString = `Union of all status codes between ${range.min} and ${range.max}:`;
+      const comprehensiveListOfTypes = '- '.concat(codesAsTypeString.join('\n- '));
+
+      return {
+        docs: [`${comment.doc}\n\n${rangeDescriptorString}\n${comprehensiveListOfTypes}`],
+        kind: StructureKind.TypeAlias,
+        name: constant,
+        type: '\n| '.concat(codesAsTypeString.join('\n| ')),
+        isExported: true,
+      };
+    });
+
+  const statusClassNamespaces: StatementStructures[] = Classes
+    .map(({
+      constant, range, comment,
+    }) => {
+      const codesInRange = Codes.filter(
+        (code) => code.code >= range.min && code.code <= range.max,
+      );
+
+      const codesAsTypeString = codesInRange.map((code) => `StatusCodes.${code.constant}`);
+      const rangeDescriptorString = `Union of all status codes between ${range.min} and ${range.max}:`;
+      const comprehensiveListOfTypes = '- '.concat(codesAsTypeString.join('\n- '));
+
+      const temp: StatementStructures = {
+        docs: [`${comment.doc}\n\n${rangeDescriptorString}\n${comprehensiveListOfTypes}`],
+        kind: StructureKind.Namespace,
+        name: constant,
+        isExported: true,
+        statements: [
+          {
+            docs: ['List of all codes'],
+            kind: StructureKind.VariableStatement,
+            isExported: true,
+            declarationKind: VariableDeclarationKind.Const,
+            declarations: [{
+              name: 'LIST',
+              type: 'Number[]',
+              initializer: `[\n${(codesInRange.map((code) => `StatusCodes.${code.constant}`)).join(',\n')}\n]`,
+            }],
+          },
+        ],
+      };
+      return temp;
+    });
 
   const statusCodeToReasonPhrase = Codes
     .reduce((acc: Record<string, string>, { code, phrase }) => {
@@ -83,6 +145,27 @@ const run = async () => {
   },
   {
     overwrite: true,
+  });
+
+  const statusClassFile = project.createSourceFile('src/status-classes.ts', {
+    statements: [
+      {
+        kind: StructureKind.Namespace,
+        name: 'StatusClasses',
+        isExported: true,
+        statements: [...statusClassStatements, ...statusClassNamespaces],
+      },
+    ],
+  }, {
+    overwrite: true,
+  });
+  statusClassFile.addImportDeclaration({
+    namedImports: [
+      {
+        name: 'StatusCodes',
+      },
+    ],
+    moduleSpecifier: './status-codes',
   });
 
   const reasonPhraseFile = project.createSourceFile('src/reason-phrases.ts', {
@@ -126,7 +209,7 @@ const run = async () => {
     overwrite: true,
   });
 
-  [statusCodeFile, reasonPhraseFile, utilsFile].forEach((sf) => {
+  [statusCodeFile, statusClassFile, reasonPhraseFile, utilsFile].forEach((sf) => {
     sf.insertStatements(0, '// Generated file. Do not edit\n');
   });
 
@@ -144,6 +227,15 @@ const run = async () => {
 
   const readmeRegex = /## Codes\n\n([^#]*)##/g;
   readmeFile = readmeFile.replace(readmeRegex, `## Codes\n\n${table}\n\n##`);
+
+  const sortedClasses = Classes.sort((a, b) => (a.range.min - b.range.min));
+  const classTable = markdownTable([
+    ['Constant', 'Range'],
+    ...sortedClasses.map(({ constant, range }) => [constant, `${range.min} - ${range.max}`]),
+  ]);
+
+  const readmeClassRegex = /## Classes\n\n([^#]*)##/g;
+  readmeFile = readmeFile.replace(readmeClassRegex, `## Classes\n\n${classTable}\n\n##`);
 
   fs.writeFile('./README.md', readmeFile);
   console.log('Successfully updated README.md table');
