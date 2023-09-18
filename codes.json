@@ -525,15 +525,5 @@
       "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7540#section-9.1.2",
       "description": "Defined in the specification of HTTP/2 to indicate that a server is not able to produce a response for the combination of scheme and authority that are included in the request URI."
     }
-  },
-  {
-    "code": 521,
-    "phrase": "Web Server Is Down",
-    "constant": "WEB_SERVER_IS_DOWN",
-    "isDeprecated": false,
-    "comment": {
-      "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7504#section-4",
-      "description": "The origin server refused connections from Host, domain, mail. or a related term. Security solutions at the origin may be blocking legitimate connections from certain connection"
-    }
   }
 ]
