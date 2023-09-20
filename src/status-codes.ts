@@ -19,6 +19,12 @@ export enum StatusCodes {
      */
     PROCESSING = 102,
     /**
+     * Official Documentation @ https://www.rfc-editor.org/rfc/rfc8297#page-3
+     *
+     * This code indicates to the client that the server is likely to send a final response with the header fields included in the informational response.
+     */
+    EARLY_HINTS = 103,
+    /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.3.1
      *
      * The request has succeeded. The meaning of a success varies depending on the HTTP method:
@@ -270,6 +276,12 @@ export enum StatusCodes {
      * The request failed due to failure of a previous request.
      */
     FAILED_DEPENDENCY = 424,
+    /**
+     * Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.15
+     *
+     * The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol.
+     */
+    UPGRADE_REQUIRED = 426,
     /**
      * Official Documentation @ https://tools.ietf.org/html/rfc6585#section-3
      *
