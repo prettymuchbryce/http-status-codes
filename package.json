@@ -1,7 +1,7 @@
 {
   "name": "http-status-codes",
   "sideEffects": false,
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Constants enumerating the HTTP status codes. Based on the Java Apache HttpStatus API.",
   "scripts": {
     "update-codes": "ts-node --project ./scripts/tsconfig.json ./scripts/update-codes",
