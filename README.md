@@ -46,6 +46,7 @@ response
 | 100  | CONTINUE                        | Continue                        |
 | 101  | SWITCHING_PROTOCOLS             | Switching Protocols             |
 | 102  | PROCESSING                      | Processing                      |
+| 103  | EARLY_HINTS                     | Early Hints                     |
 | 200  | OK                              | OK                              |
 | 201  | CREATED                         | Created                         |
 | 202  | ACCEPTED                        | Accepted                        |
@@ -84,9 +85,11 @@ response
 | 418  | IM_A_TEAPOT                     | I'm a teapot                    |
 | 419  | INSUFFICIENT_SPACE_ON_RESOURCE  | Insufficient Space on Resource  |
 | 420  | METHOD_FAILURE                  | Method Failure                  |
+| 421  | MISDIRECTED_REQUEST             | Misdirected Request             |
 | 422  | UNPROCESSABLE_ENTITY            | Unprocessable Entity            |
 | 423  | LOCKED                          | Locked                          |
 | 424  | FAILED_DEPENDENCY               | Failed Dependency               |
+| 426  | UPGRADE_REQUIRED                | Upgrade Required                |
 | 428  | PRECONDITION_REQUIRED           | Precondition Required           |
 | 429  | TOO_MANY_REQUESTS               | Too Many Requests               |
 | 431  | REQUEST_HEADER_FIELDS_TOO_LARGE | Request Header Fields Too Large |
@@ -134,3 +137,5 @@ npm run build
 npm version [major | minor | patch]
 npm publish
 ```
+
+After releasing, please add release notes via GitHub Releases.

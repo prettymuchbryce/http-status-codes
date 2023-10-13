@@ -38,6 +38,8 @@ export const statusCodeToReasonPhrase: Record<string, string> = {
         "412": "Precondition Failed",
         "428": "Precondition Required",
         "102": "Processing",
+        "103": "Early Hints",
+        "426": "Upgrade Required",
         "407": "Proxy Authentication Required",
         "431": "Request Header Fields Too Large",
         "408": "Request Timeout",
@@ -55,7 +57,8 @@ export const statusCodeToReasonPhrase: Record<string, string> = {
         "422": "Unprocessable Entity",
         "415": "Unsupported Media Type",
         "305": "Use Proxy",
-        "208": "Already Reported"
+        "208": "Already Reported",
+        "421": "Misdirected Request"
     };
 export const reasonPhraseToStatusCode: Record<string, number> = {
         "Accepted": 202,
@@ -96,6 +99,8 @@ export const reasonPhraseToStatusCode: Record<string, number> = {
         "Precondition Failed": 412,
         "Precondition Required": 428,
         "Processing": 102,
+        "Early Hints": 103,
+        "Upgrade Required": 426,
         "Proxy Authentication Required": 407,
         "Request Header Fields Too Large": 431,
         "Request Timeout": 408,
@@ -113,5 +118,6 @@ export const reasonPhraseToStatusCode: Record<string, number> = {
         "Unprocessable Entity": 422,
         "Unsupported Media Type": 415,
         "Use Proxy": 305,
-        "Already Reported": 208
+        "Already Reported": 208,
+        "Misdirected Request": 421
     };

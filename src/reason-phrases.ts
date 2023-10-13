@@ -234,6 +234,18 @@ export enum ReasonPhrases {
      */
     PROCESSING = "Processing",
     /**
+     * Official Documentation @ https://www.rfc-editor.org/rfc/rfc8297#page-3
+     *
+     * This code indicates to the client that the server is likely to send a final response with the header fields included in the informational response.
+     */
+    EARLY_HINTS = "Early Hints",
+    /**
+     * Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.15
+     *
+     * The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol.
+     */
+    UPGRADE_REQUIRED = "Upgrade Required",
+    /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7235#section-3.2
      *
      * This is similar to 401 but authentication is needed to be done by a proxy.
@@ -341,5 +353,11 @@ export enum ReasonPhrases {
      *
      * The 208 (Already Reported) status code can be used inside a DAV: propstat response element to avoid enumerating the internal members of multiple bindings to the same collection repeatedly.
      */
-    ALREADY_REPORTED = "Already Reported"
+    ALREADY_REPORTED = "Already Reported",
+    /**
+     * Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7540#section-9.1.2
+     *
+     * Defined in the specification of HTTP/2 to indicate that a server is not able to produce a response for the combination of scheme and authority that are included in the request URI.
+     */
+    MISDIRECTED_REQUEST = "Misdirected Request"
 }

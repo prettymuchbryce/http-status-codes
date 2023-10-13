@@ -343,6 +343,26 @@
     }
   },
   {
+    "code": 103,
+    "phrase": "Early Hints",
+    "constant": "EARLY_HINTS",
+    "isDeprecated": false,
+    "comment": {
+      "doc": "Official Documentation @ https://www.rfc-editor.org/rfc/rfc8297#page-3",
+      "description": "This code indicates to the client that the server is likely to send a final response with the header fields included in the informational response."
+    }
+  },
+  {
+    "code": 426,
+    "phrase": "Upgrade Required",
+    "constant": "UPGRADE_REQUIRED",
+    "isDeprecated": false,
+    "comment": {
+      "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.15",
+      "description": "The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol."
+    }
+  },
+  {
     "code": 407,
     "phrase": "Proxy Authentication Required",
     "constant": "PROXY_AUTHENTICATION_REQUIRED",
@@ -503,6 +523,16 @@
     "comment": {
       "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc5842#section-7.1",
       "description": "The 208 (Already Reported) status code can be used inside a DAV: propstat response element to avoid enumerating the internal members of multiple bindings to the same collection repeatedly."
+    }
+  },
+  {
+    "code": 421,
+    "phrase": "Misdirected Request",
+    "constant": "MISDIRECTED_REQUEST",
+    "isDeprecated": false,
+    "comment": {
+      "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7540#section-9.1.2",
+      "description": "Defined in the specification of HTTP/2 to indicate that a server is not able to produce a response for the combination of scheme and authority that are included in the request URI."
     }
   }
 ]
