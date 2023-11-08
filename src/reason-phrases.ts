@@ -97,6 +97,12 @@ export enum ReasonPhrases {
      */
     INTERNAL_SERVER_ERROR = "Internal Server Error",
     /**
+     * Official Documentation @ https://datatracker.ietf.org/doc/html/rfc4954#section-6
+     *
+     * The authentication failed due to invalid or insufficient authentication credentials.
+     */
+    AUTHENTICATION_CREDENTIALS_INVALID = "Authentication credentials invalid",
+    /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.5.10
      *
      * The server rejected the request because the Content-Length header field is not defined and the server requires it.

@@ -353,5 +353,11 @@ export enum StatusCodes {
      *
      * The 511 status code indicates that the client needs to authenticate to gain network access.
      */
-    NETWORK_AUTHENTICATION_REQUIRED = 511
+    NETWORK_AUTHENTICATION_REQUIRED = 511,
+    /**
+     * Official Documentation @ https://datatracker.ietf.org/doc/html/rfc4954#section-6
+     *
+     * The authentication failed due to invalid or insufficient authentication credentials.
+     */
+    AUTHENTICATION_CREDENTIALS_INVALID = 535
 }
