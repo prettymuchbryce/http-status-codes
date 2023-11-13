@@ -144,6 +144,15 @@
     }
   },
   {
+    "code": 535,
+    "phrase": "Authentication credentials invalid",
+    "constant": "AUTHENTICATION_CREDENTIALS_INVALID",
+    "comment": {
+      "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc4954#section-6",
+      "description": "The authentication failed due to invalid or insufficient authentication credentials."
+    }
+  },
+  {
     "code": 411,
     "phrase": "Length Required",
     "constant": "LENGTH_REQUIRED",
