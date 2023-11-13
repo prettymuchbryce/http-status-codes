@@ -2,7 +2,14 @@
 
 Constants enumerating the HTTP status codes. Based on the [Java Apache HttpStatus API](http://hc.apache.org/httpclient-3.x/apidocs/org/apache/commons/httpclient/HttpStatus.html).
 
-All status codes defined in RFC1945 (HTTP/1.0), RFC2616 (HTTP/1.1), RFC2518 (WebDAV), RFC6585 (Additional HTTP Status Codes), and RFC7538 (Permanent Redirect) are supported.
+All status codes defined in the following RFCs are supported:
+* RFC1945 (HTTP/1.0)
+* RFC2616 (HTTP/1.1)
+* RFC7231 (HTTP/1.1: Semantics and Content)
+* RFC2518 (WebDAV)
+* RFC6585 (Additional HTTP Status Codes)
+* RFC7538 (Permanent Redirect)
+* RFC8297 (An HTTP Status Code for Indicating Hints)
 
 TypeScript or JavaScript. Completely library agnostic. No dependencies.
 
