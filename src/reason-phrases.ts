@@ -349,12 +349,6 @@ export enum ReasonPhrases {
      */
     USE_PROXY = "Use Proxy",
     /**
-     * Official Documentation @ https://datatracker.ietf.org/doc/html/rfc5842#section-7.1
-     *
-     * The 208 (Already Reported) status code can be used inside a DAV: propstat response element to avoid enumerating the internal members of multiple bindings to the same collection repeatedly.
-     */
-    ALREADY_REPORTED = "Already Reported",
-    /**
      * Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7540#section-9.1.2
      *
      * Defined in the specification of HTTP/2 to indicate that a server is not able to produce a response for the combination of scheme and authority that are included in the request URI.

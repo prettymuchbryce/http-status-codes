@@ -57,7 +57,6 @@ export const statusCodeToReasonPhrase: Record<string, string> = {
         "422": "Unprocessable Entity",
         "415": "Unsupported Media Type",
         "305": "Use Proxy",
-        "208": "Already Reported",
         "421": "Misdirected Request"
     };
 export const reasonPhraseToStatusCode: Record<string, number> = {
@@ -118,6 +117,5 @@ export const reasonPhraseToStatusCode: Record<string, number> = {
         "Unprocessable Entity": 422,
         "Unsupported Media Type": 415,
         "Use Proxy": 305,
-        "Already Reported": 208,
         "Misdirected Request": 421
     };
