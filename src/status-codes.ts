@@ -353,6 +353,5 @@ export enum StatusCodes {
      *
      * The 511 status code indicates that the client needs to authenticate to gain network access.
      */
-    USE_PROXY = 305,
     NETWORK_AUTHENTICATION_REQUIRED = 511
 }
