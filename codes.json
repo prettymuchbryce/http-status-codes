@@ -525,5 +525,14 @@
       "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7540#section-9.1.2",
       "description": "Defined in the specification of HTTP/2 to indicate that a server is not able to produce a response for the combination of scheme and authority that are included in the request URI."
     }
+  },
+  {
+    "code": 440,
+    "phrase": "Login Time-out",
+    "constant": "LOGIN_TIMEOUT",
+    "isDeprecated": false,
+    "comment": {
+      "doc": "Documentation @ https://dynomapper.com/blog/254-the-6-types-of-http-status-codes-explained",
+      "description": "Defined as part of Microsoft's Internet Information Services (IIS) web server expansion of the 4xx error space to signal errors with the client's request. 440 Status code is sent when the client's session has expired and must log in again."
   }
 ]
