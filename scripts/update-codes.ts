@@ -131,7 +131,7 @@ const run = async () => {
   });
 
   await project.save();
-  console.log('Successfully updated codes and generated src/codes.ts');
+  console.log('Successfully updated codes and generated src/status-codes.ts');
   console.log('Updating README.md table');
 
   let readmeFile = await fs.readFile('./README.md', 'utf8');
