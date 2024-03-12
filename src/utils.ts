@@ -57,7 +57,13 @@ export const statusCodeToReasonPhrase: Record<string, string> = {
         "422": "Unprocessable Entity",
         "415": "Unsupported Media Type",
         "305": "Use Proxy",
-        "421": "Misdirected Request"
+        "421": "Misdirected Request",
+        "521": "Web Server Is Down",
+        "522": "Connection Timed Out",
+        "523": "Origin Is Unreachable",
+        "524": "A Timeout Occurred",
+        "525": "SSL Handshake Failed",
+        "526": "Invalid SSL Certificate"
     };
 export const reasonPhraseToStatusCode: Record<string, number> = {
         "Accepted": 202,
@@ -117,5 +123,11 @@ export const reasonPhraseToStatusCode: Record<string, number> = {
         "Unprocessable Entity": 422,
         "Unsupported Media Type": 415,
         "Use Proxy": 305,
-        "Misdirected Request": 421
+        "Misdirected Request": 421,
+        "Web Server Is Down": 521,
+        "Connection Timed Out": 522,
+        "Origin Is Unreachable": 523,
+        "A Timeout Occurred": 524,
+        "SSL Handshake Failed": 525,
+        "Invalid SSL Certificate": 526
     };

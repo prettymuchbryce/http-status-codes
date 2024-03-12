@@ -353,5 +353,41 @@ export enum StatusCodes {
      *
      * The 511 status code indicates that the client needs to authenticate to gain network access.
      */
-    NETWORK_AUTHENTICATION_REQUIRED = 511
+    NETWORK_AUTHENTICATION_REQUIRED = 511,
+    /**
+     * Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-521-web-server-is-down
+     *
+     * The origin server has refused the connection from Cloudflare.
+     */
+    WEB_SERVER_IS_DOWN = 521,
+    /**
+     * Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-522-connection-timed-out
+     *
+     * Cloudflare could not negotiate a TCP handshake with the origin server.
+     */
+    CONNECTION_TIMED_OUT = 522,
+    /**
+     * Cloudflare-specific HTTP error code.Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-523-origin-is-unreachable
+     *
+     * Cloudflare could not reach the origin server; for example, if the DNS records for the origin server are incorrect.
+     */
+    ORIGIN_IS_UNREACHABLE = 523,
+    /**
+     * Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-524-a-timeout-occurred
+     *
+     * Cloudflare successfully connected to the origin server, but the origin did not respond within the configured timeout period.
+     */
+    A_TIMEOUT_OCCURRED = 524,
+    /**
+     * Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-525-ssl-handshake-failed
+     *
+     * Cloudflare could not negotiate a SSL/TLS handshake with the origin server.
+     */
+    SSL_HANDSHAKE_FAILED = 525,
+    /**
+     * Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-526-invalid-ssl-certificate
+     *
+     * Cloudflare could not validate the SSL certificate presented by the origin server.
+     */
+    INVALID_SSL_CERTIFICATE = 526
 }

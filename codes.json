@@ -165,7 +165,7 @@
     "code": 420,
     "phrase": "Method Failure",
     "constant": "METHOD_FAILURE",
-	"isDeprecated": true,
+    "isDeprecated": true,
     "comment": {
       "doc": "Official Documentation @ https://tools.ietf.org/rfcdiff?difftype=--hwdiff&url2=draft-ietf-webdav-protocol-06.txt",
       "description": "A deprecated response used by the Spring Framework when a method has failed."
@@ -510,7 +510,7 @@
     "code": 305,
     "phrase": "Use Proxy",
     "constant": "USE_PROXY",
-	"isDeprecated": true,
+    "isDeprecated": true,
     "comment": {
       "doc": "Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.4.6",
       "description": "Was defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. It has been deprecated due to security concerns regarding in-band configuration of a proxy."
@@ -524,6 +524,60 @@
     "comment": {
       "doc": "Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7540#section-9.1.2",
       "description": "Defined in the specification of HTTP/2 to indicate that a server is not able to produce a response for the combination of scheme and authority that are included in the request URI."
+    }
+  },
+  {
+    "code": 521,
+    "phrase": "Web Server Is Down",
+    "constant": "WEB_SERVER_IS_DOWN",
+    "comment": {
+      "doc": "Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-521-web-server-is-down",
+      "description": "The origin server has refused the connection from Cloudflare."
+    }
+  },
+  {
+    "code": 522,
+    "phrase": "Connection Timed Out",
+    "constant": "CONNECTION_TIMED_OUT",
+    "comment": {
+      "doc": "Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-522-connection-timed-out",
+      "description": "Cloudflare could not negotiate a TCP handshake with the origin server."
+    }
+  },
+  {
+    "code": 523,
+    "phrase": "Origin Is Unreachable",
+    "constant": "ORIGIN_IS_UNREACHABLE",
+    "comment": {
+      "doc": "Cloudflare-specific HTTP error code.Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-523-origin-is-unreachable",
+      "description": "Cloudflare could not reach the origin server; for example, if the DNS records for the origin server are incorrect."
+    }
+  },
+  {
+    "code": 524,
+    "phrase": "A Timeout Occurred",
+    "constant": "A_TIMEOUT_OCCURRED",
+    "comment": {
+      "doc": "Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-524-a-timeout-occurred",
+      "description": "Cloudflare successfully connected to the origin server, but the origin did not respond within the configured timeout period."
+    }
+  },
+  {
+    "code": 525,
+    "phrase": "SSL Handshake Failed",
+    "constant": "SSL_HANDSHAKE_FAILED",
+    "comment": {
+      "doc": "Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-525-ssl-handshake-failed",
+      "description": "Cloudflare could not negotiate a SSL/TLS handshake with the origin server."
+    }
+  },
+  {
+    "code": 526,
+    "phrase": "Invalid SSL Certificate",
+    "constant": "INVALID_SSL_CERTIFICATE",
+    "comment": {
+      "doc": "Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-526-invalid-ssl-certificate",
+      "description": "Cloudflare could not validate the SSL certificate presented by the origin server."
     }
   }
 ]
