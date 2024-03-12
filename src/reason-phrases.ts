@@ -353,5 +353,41 @@ export enum ReasonPhrases {
      *
      * Defined in the specification of HTTP/2 to indicate that a server is not able to produce a response for the combination of scheme and authority that are included in the request URI.
      */
-    MISDIRECTED_REQUEST = "Misdirected Request"
+    MISDIRECTED_REQUEST = "Misdirected Request",
+    /**
+     * Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-521-web-server-is-down
+     *
+     * The origin server has refused the connection from Cloudflare.
+     */
+    WEB_SERVER_IS_DOWN = "Web Server Is Down",
+    /**
+     * Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-522-connection-timed-out
+     *
+     * Cloudflare could not negotiate a TCP handshake with the origin server.
+     */
+    CONNECTION_TIMED_OUT = "Connection Timed Out",
+    /**
+     * Cloudflare-specific HTTP error code.Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-523-origin-is-unreachable
+     *
+     * Cloudflare could not reach the origin server; for example, if the DNS records for the origin server are incorrect.
+     */
+    ORIGIN_IS_UNREACHABLE = "Origin Is Unreachable",
+    /**
+     * Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-524-a-timeout-occurred
+     *
+     * Cloudflare successfully connected to the origin server, but the origin did not respond within the configured timeout period.
+     */
+    A_TIMEOUT_OCCURRED = "A Timeout Occurred",
+    /**
+     * Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-525-ssl-handshake-failed
+     *
+     * Cloudflare could not negotiate a SSL/TLS handshake with the origin server.
+     */
+    SSL_HANDSHAKE_FAILED = "SSL Handshake Failed",
+    /**
+     * Cloudflare-specific HTTP error code. Official Documentation @ https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/#error-526-invalid-ssl-certificate
+     *
+     * Cloudflare could not validate the SSL certificate presented by the origin server.
+     */
+    INVALID_SSL_CERTIFICATE = "Invalid SSL Certificate"
 }

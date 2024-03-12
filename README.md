@@ -108,6 +108,12 @@ response
 | 505  | HTTP_VERSION_NOT_SUPPORTED      | HTTP Version Not Supported      |
 | 507  | INSUFFICIENT_STORAGE            | Insufficient Storage            |
 | 511  | NETWORK_AUTHENTICATION_REQUIRED | Network Authentication Required |
+| 521  | WEB_SERVER_IS_DOWN              | Web Server Is Down              |
+| 522  | CONNECTION_TIMED_OUT            | Connection Timed Out            |
+| 523  | ORIGIN_IS_UNREACHABLE           | Origin Is Unreachable           |
+| 524  | A_TIMEOUT_OCCURRED              | A Timeout Occurred              |
+| 525  | SSL_HANDSHAKE_FAILED            | SSL Handshake Failed            |
+| 526  | INVALID_SSL_CERTIFICATE         | Invalid SSL Certificate         |
 
 ## Migrating from v1.x.x
 
