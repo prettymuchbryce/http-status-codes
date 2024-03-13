@@ -1,7 +1,7 @@
 import * as HttpStatusV1 from '../test/v1';
 import * as HttpStatusV2 from './index';
 import {
-  getReasonPhrase, getStatusCode, ReasonPhrases, StatusCodes,
+  getReasonPhrase, getStatusCode, ReasonPhrases, StatusCodes, validateStatusCode,
 } from './index';
 import codes from '../codes.json';
 
@@ -85,5 +85,19 @@ describe('v2', () => {
 
   test('getStatusCode nonexistent code', () => {
     expect(() => { getStatusCode('blah blah'); }).toThrowError(/Reason phrase does not exist: blah blah/);
+  });
+});
+
+describe('validateStatusCode', () => {
+  test('Valid status code', () => {
+    expect(validateStatusCode(200)).toBe(true);
+    expect(validateStatusCode(404)).toBe(true);
+    expect(validateStatusCode(500)).toBe(true);
+  });
+
+  test('Invalid status code', () => {
+    expect(validateStatusCode(0)).toBe(false);
+    expect(validateStatusCode(1000)).toBe(false);
+    expect(validateStatusCode(-200)).toBe(false);
   });
 });

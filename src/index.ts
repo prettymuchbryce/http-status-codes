@@ -3,12 +3,14 @@ import legacyCodes from './legacy';
 import {
   getStatusCode,
   getStatusText,
+  validateStatusCode,
 } from './utils-functions';
 
 export {
   getStatusCode,
   getReasonPhrase,
   getStatusText,
+  validateStatusCode,
 } from './utils-functions';
 
 export {
@@ -25,4 +27,5 @@ export default {
   ...legacyCodes,
   getStatusCode,
   getStatusText,
+  validateStatusCode,
 };
