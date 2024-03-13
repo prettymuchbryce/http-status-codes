@@ -45,3 +45,13 @@ export function getStatusCode(reasonPhrase: string): (number) {
  * @returns {string|undefined} The associated reason phrase (e.g. "Bad Request", "OK")
  * */
 export const getStatusText = getReasonPhrase;
+
+/**
+ * Returns true if the given status code is a valid HTTP status code.
+ *
+ * @param {number} statusCode The HTTP status code
+ * @returns {boolean} True if the status code is valid, false otherwise
+ * */
+export function validateStatusCode(statusCode: number): boolean {
+  return Object.values(reasonPhraseToStatusCode).includes(statusCode);
+}
