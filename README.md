@@ -10,6 +10,7 @@ All status codes defined in the following RFCs are supported:
 * RFC6585 (Additional HTTP Status Codes)
 * RFC7538 (Permanent Redirect)
 * RFC8297 (An HTTP Status Code for Indicating Hints)
+* RFC8470 (Using Early Data in HTTP)
 
 TypeScript or JavaScript. Completely library agnostic. No dependencies.
 
@@ -95,6 +96,7 @@ response
 | 422  | UNPROCESSABLE_ENTITY            | Unprocessable Entity            |
 | 423  | LOCKED                          | Locked                          |
 | 424  | FAILED_DEPENDENCY               | Failed Dependency               |
+| 425  | TOO_EARLY                       | Too Early                       |
 | 426  | UPGRADE_REQUIRED                | Upgrade Required                |
 | 428  | PRECONDITION_REQUIRED           | Precondition Required           |
 | 429  | TOO_MANY_REQUESTS               | Too Many Requests               |

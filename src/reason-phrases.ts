@@ -49,6 +49,12 @@ export enum ReasonPhrases {
      */
     FAILED_DEPENDENCY = "Failed Dependency",
     /**
+     * Official Documentation @ https://www.rfc-editor.org/rfc/rfc8470#section-5.2
+     *
+     * The server is unwilling to risk processing a request that might be replayed.
+     */
+    TOO_EARLY = "Too Early",
+    /**
      * Official Documentation @ https://tools.ietf.org/html/rfc7231#section-6.5.3
      *
      * The client does not have access rights to the content, i.e. they are unauthorized, so server is rejecting to give proper response. Unlike 401, the client's identity is known to the server.
