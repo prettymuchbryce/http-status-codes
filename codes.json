@@ -72,6 +72,15 @@
     }
   },
   {
+    "code": 425,
+    "phrase": "Too Early",
+    "constant": "TOO_EARLY",
+    "comment": {
+      "doc": "Official Documentation @ https://www.rfc-editor.org/rfc/rfc8470#section-5.2",
+      "description": "The server is unwilling to risk processing a request that might be replayed."
+    }
+  },
+  {
     "code": 403,
     "phrase": "Forbidden",
     "constant": "FORBIDDEN",

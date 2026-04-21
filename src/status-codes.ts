@@ -277,6 +277,12 @@ export enum StatusCodes {
      */
     FAILED_DEPENDENCY = 424,
     /**
+     * Official Documentation @ https://www.rfc-editor.org/rfc/rfc8470#section-5.2
+     *
+     * The server is unwilling to risk processing a request that might be replayed.
+     */
+    TOO_EARLY = 425,
+    /**
      * Official Documentation @ https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.15
      *
      * The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol.
